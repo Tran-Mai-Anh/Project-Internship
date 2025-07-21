@@ -1,0 +1,242 @@
+.vehicleDetailOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.vehicleDetailContainer {
+  background: #fff;
+  width: 700px;
+  max-width: 90%;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease;
+}
+
+.vehicleDetailBody{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.vehicleDetailHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.vehicleDetailHeader h2{
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.closeBtn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.row1Detail{
+    display: flex;
+    gap: 10px;
+}
+
+.everydaySection{
+    border: 1px solid #e3e8ef;
+    padding: 20px ;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.everydaySection legend{
+    padding: 0px 20px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.everydaySection span{
+    color: #677389;
+    font-size: 14px;
+}
+
+.detailSection{
+    border: 1px solid #e3e8ef;
+    padding: 20px ;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.detailSection legend{
+    padding: 0px 20px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.manageDetail legend{
+    padding: 0px 20px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.reportDetail legend{
+    padding: 0px 20px;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.detailSection span{
+    color: #677389;
+    font-size: 14px;
+}
+
+.row2Detail{
+    display: flex;
+    gap: 10px;
+}
+
+.manageDetail{
+    border: 1px solid #e3e8ef;
+    padding: 20px ;
+    border-radius: 5px;
+    flex: 1;
+    display: flex;
+}
+
+.reportDetail{
+    flex: 1;
+    border: 1px solid #e3e8ef;
+    padding: 20px ;
+    border-radius: 5px;
+}
+
+.editFunction{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.deleteFunction{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.reportDetail{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.reportFunction{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.editBtn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    color: #447dfc;
+    border: 2px solid #447dfc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editBtn:hover{
+    background-color: #edf2fe;
+}
+
+.editIcon{
+    font-size: 25px;
+}
+
+.deleteBtn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    color: #e64341;
+    border: 2px solid #e64341;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.deleteBtn:hover{
+    background-color: #fcecec;
+}
+
+.deleteIcon{
+    font-size: 25px;
+}
+
+.reportBtn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    color: #f0dd81;
+    border: 2px solid #f0dd81;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reportBtn:hover{
+    background-color: #fdf8e1;
+}
+
+.reportIcon{
+    font-size: 25px;
+}
+
+.footer {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeModalBtn {
+  background: #f2f5f9;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.closeModalBtn:hover{
+    background-color: #e3e8f0;
+}
+
+.closeIcon{
+    font-size: 16px;
+}

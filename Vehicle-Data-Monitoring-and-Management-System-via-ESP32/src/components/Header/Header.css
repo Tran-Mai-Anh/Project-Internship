@@ -1,0 +1,90 @@
+.headerContainer {
+  height: 40px;
+  border: 1px solid #e3e8ef;
+  border-radius: 5px;
+  box-shadow: -2px 1px 15px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -2px 1px 15px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: -2px 1px 15px 0px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  z-index: 1;
+}
+
+.appStatus {
+  display: flex;
+}
+
+.account {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+}
+
+.avatar {
+  background-color: #110c75;
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+}
+
+.shortName {
+  color: #d57dd4;
+  font-weight: bold;
+}
+
+.fullName {
+  font-size: 18px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: none;
+  margin-right: 20px;
+}
+
+.iconNotification {
+  font-size: 20px;
+}
+
+.searchHeader {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #e3e8ef;
+  border-radius: 5px;
+  width: 400px;
+  height: 35px;
+  padding: 0 20px;
+  transition: border 0.3s ease;
+}
+
+.searchHeader:hover{
+  border:1px solid black;
+}
+
+.searchHeader.active {
+  border:1px solid #d57dd4;
+}
+
+.searchInputHeader{
+  flex: 10;
+  border: none;
+  outline: none;
+}
+
+.searchIconHeader{
+  margin-right: 10px;
+  font-size: 20px;
+}

@@ -1,0 +1,43 @@
+html,body, #root{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.layoutContainer{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.sidebarContainerLo{
+    width: 18%;
+    height: 100%;
+}
+
+.mainContent{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    margin-left: 5px;
+}
+
+.viewContent{
+    flex: 1;
+    overflow: auto;
+}
+
+.headerContainerLo{
+    height: 65px;
+}
+
+.viewContent{
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}

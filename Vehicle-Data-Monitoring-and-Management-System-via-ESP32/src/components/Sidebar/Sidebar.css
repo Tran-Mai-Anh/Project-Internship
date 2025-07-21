@@ -1,0 +1,148 @@
+.sidebarContainer {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #e3e8ef;
+  border-radius: 5px;
+  box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 1px 1px 15px 0px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.sidebarNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-bottom: 1px solid #e3e8ef;
+  padding: 15px 20px;
+  height: 30px;
+}
+
+.logoDiv {
+  flex: 2;
+  height: 100%;
+  width: 100%;
+}
+
+.arrowDropLeftDiv {
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: right;
+}
+
+.logoSidebar {
+  height: 100%;
+}
+
+.arrowDropLeft {
+  font-size: 30px;
+  color: #97a2b6;
+}
+
+.arrowDropLeft:hover{
+  color: #20293a;
+}
+
+.menuList {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menuTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.iconTitle {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #97a2b6;
+}
+
+.iconDown {
+  font-size: 20px;
+  color: #97a2b6;
+}
+
+.subTitle {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  padding: 10px 0px 10px 20px;
+  border-radius: 5px;
+}
+
+.mainTitle {
+  cursor: pointer;
+}
+
+.menuTitle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  margin: 5px;
+  border-radius: 5px;
+}
+
+.title {
+  padding: 10px 0;
+}
+
+.subMenu {
+  padding-left: 25px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.3s ease;
+}
+
+.subMenu.open {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.iconDown {
+  transition: transform 0.3s ease;
+}
+
+.rotateIcon {
+  transform: rotate(90deg);
+}
+
+.menuTitle:hover {
+  background-color: #f2f4f9;
+}
+
+.subTitle:hover {
+  background-color: #f2f4f9;
+}
+
+.subTitle.active{
+  background-color: #e8e8ef;
+}
+
+.subTitle.active .iconTitle{
+  background-color: #e8e8ef;
+  color: #20293a;
+}
+
+.menuTitle:hover .iconTitle{
+  color: #585f73;
+}
+
+.menuTitle:hover .iconDown{
+  color: #585f73;
+}
+
+.subTitle:hover .iconTitle{
+  color: #585f73;
+}
