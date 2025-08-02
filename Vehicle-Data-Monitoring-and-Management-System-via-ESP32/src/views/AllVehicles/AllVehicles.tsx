@@ -41,15 +41,7 @@ const AllVehicles = () => {
   const [position,setPosition] = useState<[number,number] | null>(null);
 
   const [allVehicles,setAllVehicles] = useState<Vehicle[]>([
-    {
-        id: 2,
-        imei: "XI-p98",
-        licensePlate: "93P1-33-77",
-        simPhoneNumber: "0909877621",
-        vehicleType: "car",
-        createdAt: "2025-07-21T14:16:10.515087Z",
-        updatedAt: "2025-07-21T14:16:10.51513Z"
-    }
+ 
 ]);
 
   useEffect(()=>{
