@@ -4,16 +4,13 @@ import viteLogo from "/vite.svg";
 //import "./App.css";
 import Layout from "./layouts/Layout";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AppRoutes } from "./routes/AppRoutes";
+import {  MapRouter } from "./routes/MapRouter";
+import Login from "./views/Login/Login";
+import Register from "./views/Register/RegisterCar";
+
 const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route path="*" element={<AppRoutes />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <MapRouter/>
   );
 };
 

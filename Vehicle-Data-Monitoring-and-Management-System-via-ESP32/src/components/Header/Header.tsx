@@ -8,7 +8,7 @@ export const Header = () => {
 
   return (
     <div className="headerContainer">
-      <div className={`searchHeader ${isFocused ? "active" : ""}`}>
+      {/* <div className={`searchHeader ${isFocused ? "active" : ""}`}>
         <IoSearch className="searchIconHeader" />
         <input
           placeholder="Search pages"
@@ -16,7 +16,7 @@ export const Header = () => {
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
         />
-      </div>
+      </div> */}
       <div className="appStatus">
         <button className="notification">
           <BsCalendarEventFill className="iconNotification" />
