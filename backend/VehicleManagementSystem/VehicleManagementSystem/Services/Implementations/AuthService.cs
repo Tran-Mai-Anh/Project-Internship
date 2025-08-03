@@ -54,12 +54,55 @@ namespace VehicleManagementSystem.Services.Implementations
 
         public async Task<IActionResult> RegisterWithVehicle(RegisterRequest request)
         {
+            // Basic validation for empty or null fields
+            if (string.IsNullOrWhiteSpace(request.Name) ||
+                string.IsNullOrWhiteSpace(request.Email) ||
+                string.IsNullOrWhiteSpace(request.Password) ||
+                string.IsNullOrWhiteSpace(request.IMEI) ||
+                string.IsNullOrWhiteSpace(request.LicensePlate) ||
+                string.IsNullOrWhiteSpace(request.SimPhoneNumber) ||
+                string.IsNullOrWhiteSpace(request.VehicleType))
+            {
+                return new BadRequestObjectResult(new { message = "Please fill in all required fields." });
+            }
+
+            // SIM phone number: only digits, and length = 10 or 11
+            if (!System.Text.RegularExpressions.Regex.IsMatch(request.SimPhoneNumber, @"^\d{10,11}$"))
+            {
+                return new BadRequestObjectResult(new { message = "SIM phone number must be 10 or 11 digits." });
+            }
+
+            // Email format validation (simple regex)
+            if (!System.Text.RegularExpressions.Regex.IsMatch(request.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            {
+                return new BadRequestObjectResult(new { message = "Invalid email format." });
+            }
+
+            // Password length validation
+            if (!System.Text.RegularExpressions.Regex.IsMatch(request.Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"))
+            {
+                return new BadRequestObjectResult(new
+                {
+                    message = "Invalid password."
+                });
+            }
+
+            // Confirm password match
+            if (request.Password != request.ConfirmPassword)
+            {
+                return new BadRequestObjectResult(new { message = "Password and confirm password do not match." });
+            }
+
+            // Check if email already exists
             if (await _context.Users.AnyAsync(x => x.Email == request.Email))
+            {
                 return new BadRequestObjectResult(new { message = "Email already exists." });
+            }
 
             using var transaction = await _context.Database.BeginTransactionAsync();
             try
             {
+                // Create user entity
                 var user = new User
                 {
                     Name = request.Name,
@@ -68,11 +111,16 @@ namespace VehicleManagementSystem.Services.Implementations
                     Password = BCrypt.Net.BCrypt.HashPassword(request.Password)
                 };
 
+                // Get default role
                 var role = await _context.Role.FirstOrDefaultAsync(r => r.RoleName == "User");
-                if (role == null) return new BadRequestObjectResult(new { message = "Default role not found." });
+                if (role == null)
+                {
+                    return new BadRequestObjectResult(new { message = "Default role not found." });
+                }
 
                 user.UserRoles = new List<UserRole> { new UserRole { User = user, Role = role } };
 
+                // Create vehicle entity
                 var vehicle = new Vehicle
                 {
                     IMEI = request.IMEI,
@@ -82,11 +130,11 @@ namespace VehicleManagementSystem.Services.Implementations
                     VehicleType = request.VehicleType,
                     User = user,
                     CreatedAt = DateTime.UtcNow,
-                    UpdatedAt = DateTime.UtcNow
                 };
 
                 user.Vehicles = new List<Vehicle> { vehicle };
 
+                // Save to database
                 _context.Users.Add(user);
                 await _context.SaveChangesAsync();
                 await transaction.CommitAsync();
@@ -97,7 +145,9 @@ namespace VehicleManagementSystem.Services.Implementations
             {
                 await transaction.RollbackAsync();
                 return new ObjectResult(new { message = "Failed to register user and vehicle", error = ex.Message })
-                { StatusCode = 500 };
+                {
+                    StatusCode = 500
+                };
             }
         }
     }

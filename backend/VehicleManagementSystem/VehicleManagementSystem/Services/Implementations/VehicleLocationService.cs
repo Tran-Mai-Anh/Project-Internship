@@ -14,13 +14,18 @@ namespace VehicleManagementSystem.Services.Implementations
 
         public async Task<IActionResult> UpdateLocation(LocationDto request)
         {
-            if (request.VehicleId <= 0)
-                return new BadRequestObjectResult("Invalid VehicleId");
+            // Validate latitude and longitude
+            if (request.Latitude < -90 || request.Latitude > 90)
+                return new BadRequestObjectResult("Latitude must be between -90 and 90.");
+
+            if (request.Longitude < -180 || request.Longitude > 180)
+                return new BadRequestObjectResult("Longitude must be between -180 and 180.");
 
             var vehicle = await _context.Vehicles.FirstOrDefaultAsync(v => v.Id == request.VehicleId);
             if (vehicle == null)
                 return new NotFoundObjectResult($"No vehicle found with ID {request.VehicleId}");
 
+            // Add to location history
             var history = new VehicleLocation
             {
                 VehicleId = request.VehicleId,
@@ -30,6 +35,7 @@ namespace VehicleManagementSystem.Services.Implementations
             };
             await _context.VehicleLocations.AddAsync(history);
 
+            // Update or insert latest location
             var vehicleData = await _context.VehicleDatas.FirstOrDefaultAsync(v => v.VehicleId == request.VehicleId);
             if (vehicleData == null)
             {

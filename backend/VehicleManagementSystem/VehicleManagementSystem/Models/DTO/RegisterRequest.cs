@@ -8,6 +8,7 @@
         public string Address { get; set; }
         public string Password { get; set; }
 
+        public string ConfirmPassword { get; set; }
         // Vehicle Info
         public string IMEI { get; set; }
         public string LicensePlate { get; set; }

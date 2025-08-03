@@ -163,6 +163,16 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "VehicleManagementSystem.Controllers.VehiclesController",
+    "Method": "GetMyVehicles",
+    "RelativePath": "api/vehicles/all-vehicles",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "VehicleManagementSystem.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
