@@ -30,7 +30,7 @@
   margin-bottom: 15px;
 }
 
-.register-form span {
+.register-form .force {
   color: red;
 }
 
@@ -43,10 +43,6 @@
 
 .inputGroup p {
   font-weight: 600;
-}
-
-.inputGroup span{
-  color: red;
 }
 
 .imei,

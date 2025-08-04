@@ -80,7 +80,7 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
     }
 
     if (!selected) {
-      errors.vehicleType = "Hãy chọn loại xe";
+      errors.vehicleType = "Bắt buộc";
       triggerShake("vehicleType");
     }
 
@@ -100,7 +100,7 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
           <img src={logoFull} alt="Logo" />
           <div className="inputGroup">
             <p>
-              IMEI <span>*</span>
+              IMEI <span className="force">*</span>
             </p>
             <div
               className={`imei ${isImeiFocused ? "active" : ""} ${
@@ -128,7 +128,7 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
 
           <div className="inputGroup">
             <p>
-              Biển số <span>*</span>
+              Biển số <span className="force">*</span>
             </p>
             <div
               className={`plate ${isPlateFocused ? "active" : ""} ${
@@ -154,7 +154,7 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
 
           <div className="inputGroup">
             <p>
-              Số điện thoại SIM <span>*</span>
+              Số điện thoại SIM <span className="force">*</span>
             </p>
             <div
               className={`simphone ${isSimPhoneFocused ? "active" : ""} ${
@@ -182,7 +182,7 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
 
           <div className="inputGroup">
             <p>
-              Hãng xe <span>*</span>
+              Hãng xe <span className="force">*</span>
             </p>
             <div
               className={`brand ${isBrandFocused ? "active" : ""} ${
@@ -217,7 +217,7 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
                   checked={selected === option}
                   onChange={() => setSelected(option)}
                 />
-                <span>{option}</span>
+                <span className="force">{option}</span>
               </label>
             ))}
             {fieldErrors.vehicleType && (

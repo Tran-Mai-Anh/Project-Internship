@@ -10,6 +10,8 @@ import Map from "../../components/Map/Map";
 import OptionDetail from "../../components/OptionDetail/OptionDetail";
 import VehicleDetail from "../../components/VehicleDetail/VehicleDetail";
 import axiosInstance from "../../axiosInstance";
+import { useBackDrop } from "../Backdrop/BackdropProvider";
+import { toast } from "react-toastify";
 
 
 interface Vehicle{
@@ -39,7 +41,7 @@ const AllVehicles = () => {
   const [currentLocation, setCurrentLocation] = useState<any | null>(null);
   const [vehicleType, setVehicleType] = useState<string>("car"); 
   const [position,setPosition] = useState<[number,number] | null>(null);
-
+const{showBackDrop,hideBackDrop} = useBackDrop();
   const [allVehicles,setAllVehicles] = useState<Vehicle[]>([
  
 ]);
@@ -47,11 +49,15 @@ const AllVehicles = () => {
   useEffect(()=>{
     async function getAllVehicles(){
       try {
+        showBackDrop();
         const response = await axiosInstance.get("vehicles/all-vehicles");
      
         setAllVehicles(response.data);
       } catch (error) {
         console.error(error);
+        toast.warn("Lỗi lấy tất cả xe");
+      }finally{
+        hideBackDrop();
       }
     }
 
@@ -88,11 +94,15 @@ const AllVehicles = () => {
 
   const getPositionOfVehicle = useCallback(async (id : number)=>{
     try {
+      showBackDrop();
       const response = await axiosInstance.get(`locations/${id}/current`);
       const data : PositionVehicle = response.data;
       setPosition([data.latitude,data.longtitude]);
     } catch (error) {
       console.error(error);
+      toast.warn("Lỗi lấy vị trí của 1 xe");
+    }finally{
+      hideBackDrop();
     }
   },[]);
 

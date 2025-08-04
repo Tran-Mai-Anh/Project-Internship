@@ -6,6 +6,13 @@ import { IoIosLock } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../axiosInstance";
 import { MdOutlineReportProblem } from "react-icons/md";
+import { useBackDrop } from "../Backdrop/BackdropProvider";
+import { toast } from "react-toastify";
+
+const fields = {
+  email: "the email",
+  password:"the password"
+}
 
 const Login = () => {
   const [isEmailFocused, setEmailIsFocused] = useState(false);
@@ -19,6 +26,7 @@ const Login = () => {
 
   const [shakeEmail, setShakeEmail] = useState(false);
   const [shakePassword, setShakePassword] = useState(false);
+  const {showBackDrop,hideBackDrop } = useBackDrop();
 
   const validateEmail = (email: string): boolean => {
     const re = /\S+@\S+\.\S+/;
@@ -55,12 +63,14 @@ const Login = () => {
     if (!valid) return;
 
     try {
+      showBackDrop();
       const response = await axiosInstance.post("auth/login", {
         email,
         password,
       });
       const data = response.data;
       localStorage.setItem("token", data.token);
+      toast.success("Đăng nhập thành công");
       navigate("/monitor/all-vehicles"); // hoặc trang khác
     } catch (error: any) {
       // Sai thông tin đăng nhập
@@ -68,6 +78,9 @@ const Login = () => {
       setPasswordError("Sai tên đăng nhập hoặc mật khẩu");
       triggerShake("email");
       triggerShake("password");
+      toast.error("Đăng nhập thất bại");
+    }finally{
+      hideBackDrop();
     }
   };
 

@@ -7,30 +7,30 @@
   background-color: #e3aadd;
 }
 
-.registerAccount-form{
+.registerAccount-form {
   background-color: white;
   width: 450px;
-   max-height: 90vh; /* ✅ Giới hạn tối đa theo chiều cao màn hình */
-  overflow-y: auto; 
+  max-height: 90vh; /* ✅ Giới hạn tối đa theo chiều cao màn hình */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 30px;
   border-radius: 20px;
-  scrollbar-width: none;       /* Firefox */
+  scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;
 }
 
 .registerAccount-form::-webkit-scrollbar {
-  display: none;               /* Chrome, Safari */
+  display: none; /* Chrome, Safari */
 }
 
 .register-form img {
   width: 100%;
   height: 120px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
-.register-form span {
+.register-form .force {
   color: red;
 }
 
@@ -38,14 +38,18 @@
   display: flex;
   flex-direction: column;
   gap: 5px;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .inputGroup p {
   font-weight: 600;
 }
 
-.email, .password {
+.password,
+.name,
+.email,
+.confirmPassword,
+.address {
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -57,42 +61,48 @@
   transition: border-color 0.3s ease;
 }
 
-.email:hover, .password:hover {
-  border-color:  #97a3b6;
+.name:hover,
+.password:hover,
+.email:hover,
+.confirmPassword:hover,
+.address:hover {
+  border-color: #97a3b6;
 }
 
-.email.active {
+.name.active,
+.email.active,
+.password.active,
+.confirmPassword.active,
+.address.active {
   border: 1px solid #e3aadd;
 }
 
-.email.active .emailIcon {
+.name.active .nameIcon,
+.email.active .emailIcon,
+.password.active .passwordIcon,
+.confirmPassword.active .confirmPasswordIcon,
+.address.active .addressIcon {
   color: #e3aadd;
 }
 
-.emailInput {
+.emailInput,
+.nameInput,
+.passwordInput,
+.confirmPasswordInput,
+.addressInput {
   flex: 10;
   border: none;
   outline: none;
 }
 
-.emailIcon, .passwordIcon{
+.emailIcon,
+.passwordIcon,
+.nameIcon,
+.confirmPasswordIcon,
+.addressIcon {
   margin-right: 10px;
   font-size: 20px;
   color: #97a3b6;
-}
-
-.password.active {
-  border: 1px solid #e3aadd;
-}
-
-.password.active .passwordIcon {
-  color: #e3aadd;
-}
-
-.passwordInput {
-  flex: 10;
-  border: none;
-  outline: none;
 }
 
 .registerButtonBig {
@@ -112,9 +122,9 @@
   -moz-box-shadow: 0px 1px 5px -1px rgba(0, 0, 0, 0.75);
 }
 
-.registerButtonBig:hover{
-    background-color: #b94db8;
-    transition: background-color 0.5 ease;
+.registerButtonBig:hover {
+  background-color: #b94db8;
+  transition: background-color 0.5 ease;
 }
 
 .registerDiv {
@@ -133,4 +143,34 @@
 
 .loginButtonSmall:hover {
   text-decoration: underline;
+}
+
+.eyeIcon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 18px;
+  color: #97a3b6;
+}
+
+.password , .confirmPassword{
+  position: relative;
+}
+
+.emailLogin.error, .password.error, .name.error, .confirmPassword.error, .address.error{
+  border: 1px solid red;
+}
+
+.emailLogin.error .emailIcon, .password.error .passwordIcon, .name.error .nameIcon, .confirmPassword.error .confirmPasswordIcon, .address.error .addressIcon{
+  color: red;
+}
+
+.errorNotification{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  color: red;
 }
