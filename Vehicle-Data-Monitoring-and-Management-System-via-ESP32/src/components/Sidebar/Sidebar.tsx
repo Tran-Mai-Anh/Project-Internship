@@ -1,5 +1,5 @@
 import "./Sidebar.css";
-import logoSidebar from "../../assets/logoSidebar.png";
+import logoSidebar from "../../assets/logoFull.png";
 import { IoIosArrowDropleft } from "react-icons/io";
 import { FiMonitor } from "react-icons/fi";
 import { FaCar } from "react-icons/fa";
@@ -38,9 +38,9 @@ const Sidebar = () => {
         <div className="logoDiv">
           <img src={logoSidebar} alt="logo sidebar" className="logoSidebar" />
         </div>
-        <div className="arrowDropLeftDiv">
+        {/* <div className="arrowDropLeftDiv">
           <IoIosArrowDropleft className="arrowDropLeft" />
-        </div>
+        </div> */}
       </div>
       <ul className="menuList">
         <li className="mainTitle">
@@ -90,7 +90,7 @@ const Sidebar = () => {
             </li>
           </ul>
         </li> */}
-        <li className="mainTitle">
+        {/* <li className="mainTitle">
           <div className="menuTitle" onClick={handleReport}>
             <div className="title">
               <FaChartPie className="iconTitle" />
@@ -120,7 +120,7 @@ const Sidebar = () => {
               Quãng đường theo xe
             </li>
           </ul>
-        </li>
+        </li> */}
       </ul>
     </div>
   );

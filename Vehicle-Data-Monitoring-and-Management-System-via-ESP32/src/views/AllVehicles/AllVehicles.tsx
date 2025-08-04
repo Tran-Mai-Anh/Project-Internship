@@ -2,19 +2,63 @@ import "./AllVehicles.css";
 import { IoSearch } from "react-icons/io5";
 import { FiFilter } from "react-icons/fi";
 import { FaPlus } from "react-icons/fa6";
-import { useEffect, useRef, useState } from "react";
-import vehicle_running from "../../assets/vehicle_running.svg";
+import { useCallback, useEffect, useRef, useState } from "react";
+import car_running from "../../assets/car_running.svg";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { HiDotsVertical } from "react-icons/hi";
 import Map from "../../components/Map/Map";
 import OptionDetail from "../../components/OptionDetail/OptionDetail";
 import VehicleDetail from "../../components/VehicleDetail/VehicleDetail";
+import axiosInstance from "../../axiosInstance";
+
+
+interface Vehicle{
+  id : number;
+  imei : string;
+  licensePlate: string;
+  simPhoneNumber: string;
+  vehicleType:string;
+  createdAt:string;
+  updatedAt:string;
+}
+
+
+interface PositionVehicle{
+vehicleId:number,
+latitude:number,
+longtitude:number,
+timestamp:string
+}
+
 
 const AllVehicles = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [isOptionDetailOpen, setIsOptionDetailOpen] = useState(false);
   const [isVehicleDetailOpen, setIsVehicleDetailOpen] = useState(false);
   const popupRef = useRef<HTMLDivElement | null>(null);
+  const [currentLocation, setCurrentLocation] = useState<any | null>(null);
+  const [vehicleType, setVehicleType] = useState<string>("car"); 
+  const [position,setPosition] = useState<[number,number] | null>(null);
+
+  const [allVehicles,setAllVehicles] = useState<Vehicle[]>([
+ 
+]);
+
+  useEffect(()=>{
+    async function getAllVehicles(){
+      try {
+        const response = await axiosInstance.get("vehicles/all-vehicles");
+     
+        setAllVehicles(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    getAllVehicles();
+  },[]);
+
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -41,11 +85,27 @@ const AllVehicles = () => {
     }
   };
 
+
+  const getPositionOfVehicle = useCallback(async (id : number)=>{
+    try {
+      const response = await axiosInstance.get(`locations/${id}/current`);
+      const data : PositionVehicle = response.data;
+      setPosition([data.latitude,data.longtitude]);
+    } catch (error) {
+      console.error(error);
+    }
+  },[]);
+
   return (
     <div className="allVehiclesPage">
       <div className="mapContainer">
         <div className="mapPlaceholder">
-          <Map />
+          <Map
+            position={
+              position
+            }
+            vehicleType={vehicleType} // "car" hoặc "motorbike"
+          />
         </div>
       </div>
 
@@ -53,13 +113,13 @@ const AllVehicles = () => {
         <div className="titleVehicleListContainer">
           <div className="titleVehicleListDiv">
             <h1 className="titleVehicleList">Danh sách xe</h1>
-            <span className="totalVehicle">1</span>
+            <span className="totalVehicle">{allVehicles.length}</span>
           </div>
-          <button className="addVehicleList">
+          {/* <button className="addVehicleList">
             <FaPlus className="addIconVehicleList" />
-          </button>
+          </button> */}
         </div>
-        <div className="searchVehicleListContainer">
+        {/* <div className="searchVehicleListContainer">
           <button className="filterVehicleList">
             <FiFilter className="filterIconVehicleList" />
           </button>
@@ -72,18 +132,18 @@ const AllVehicles = () => {
               onBlur={() => setIsFocused(false)}
             />
           </div>
-        </div>
-        <div className="vehicleDetailAllVehicleContainer">
+        </div> */}
+        {allVehicles.map(each => <div className="vehicleDetailAllVehicleContainer" onClick={() => {getPositionOfVehicle(each.id),setVehicleType(each.vehicleType)}}>
           <div className="vehicleLogoTitleAllVehicleDiv">
             <div className="vehicleLogoTitleAllVehicle">
               <img
-                src={vehicle_running}
+                src={car_running}
                 alt="logo car"
                 className="logoCarVehicleList"
               />
               <div className="vehicleTitleAllVehicleDiv">
-                <h3 className="vehicleTitleAllVehicle">Demo</h3>
-                <p className="dateTimeAllVehicle">12/07/2025 18:20:00</p>
+                <h3 className="vehicleTitleAllVehicle">{each.licensePlate}</h3>
+                <p className="dateTimeAllVehicle">{each.updatedAt}</p>
               </div>
             </div>
             <div className="statusAllVehicleDiv">
@@ -119,7 +179,7 @@ const AllVehicles = () => {
               )}
             </div>
           </div>
-        </div>
+        </div>)}
       </div>
 
       <VehicleDetail
