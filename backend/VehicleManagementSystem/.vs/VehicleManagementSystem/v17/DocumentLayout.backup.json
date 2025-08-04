@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\controllers\\vehiclescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\controllers\\vehiclescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -86,7 +86,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 18,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
@@ -247,13 +247,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "VehiclesController.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\VehiclesController.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Controllers\\VehiclesController.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\VehiclesController.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Controllers\\VehiclesController.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAQwBsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAYwCcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-21T14:07:48.815Z",
               "EditorCaption": ""
@@ -308,13 +308,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Program.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Program.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Program.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Program.cs",
-              "ViewState": "AgIAADUAAAAAAAAAAAAcwEkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-17T06:40:33.78Z",
               "EditorCaption": ""
