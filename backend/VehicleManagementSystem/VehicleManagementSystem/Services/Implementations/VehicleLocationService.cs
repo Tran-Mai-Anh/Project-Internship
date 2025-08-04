@@ -74,6 +74,12 @@ namespace VehicleManagementSystem.Services.Implementations
             };
         }
 
+        public async Task<bool> IsVehicleOwnedByUser(int vehicleId, int userId)
+        {
+            return await _context.Vehicles
+                .AnyAsync(v =>v.Id == vehicleId && v.UserId == userId);
+        }
+
         public async Task<List<LocationDto>> GetLocationHistory(int vehicleId, DateTime startTime, DateTime endTime)
         {
             return await _context.VehicleLocations

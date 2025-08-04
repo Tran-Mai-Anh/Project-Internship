@@ -26,7 +26,7 @@ interface Vehicle{
 interface PositionVehicle{
 vehicleId:number,
 latitude:number,
-longtitude:number,
+longitude:number,
 timestamp:string
 }
 
@@ -39,6 +39,7 @@ const AllVehicles = () => {
   const [currentLocation, setCurrentLocation] = useState<any | null>(null);
   const [vehicleType, setVehicleType] = useState<string>("car"); 
   const [position,setPosition] = useState<[number,number] | null>(null);
+  const [selectedVehicleId, setSelectedVehicleId] = useState<number | null>(null);
 
   const [allVehicles,setAllVehicles] = useState<Vehicle[]>([
  
@@ -48,7 +49,7 @@ const AllVehicles = () => {
     async function getAllVehicles(){
       try {
         const response = await axiosInstance.get("vehicles/all-vehicles");
-     
+        console.log(response.data);
         setAllVehicles(response.data);
       } catch (error) {
         console.error(error);
@@ -89,8 +90,9 @@ const AllVehicles = () => {
   const getPositionOfVehicle = useCallback(async (id : number)=>{
     try {
       const response = await axiosInstance.get(`locations/${id}/current`);
+    console.log(response);
       const data : PositionVehicle = response.data;
-      setPosition([data.latitude,data.longtitude]);
+      setPosition([data.latitude,data.longitude]);
     } catch (error) {
       console.error(error);
     }
@@ -133,53 +135,37 @@ const AllVehicles = () => {
             />
           </div>
         </div> */}
-        {allVehicles.map(each => <div className="vehicleDetailAllVehicleContainer" onClick={() => {getPositionOfVehicle(each.id),setVehicleType(each.vehicleType)}}>
-          <div className="vehicleLogoTitleAllVehicleDiv">
-            <div className="vehicleLogoTitleAllVehicle">
-              <img
-                src={car_running}
-                alt="logo car"
-                className="logoCarVehicleList"
-              />
-              <div className="vehicleTitleAllVehicleDiv">
-                <h3 className="vehicleTitleAllVehicle">{each.licensePlate}</h3>
-                <p className="dateTimeAllVehicle">{each.updatedAt}</p>
-              </div>
-            </div>
-            <div className="statusAllVehicleDiv">
-              <div className="realStatusAllVehicle">
-                <p className="speedAllVehicle">54</p>
-                <p className="unitAllVehicle">km/h</p>
-              </div>
-              <div className="limitStatusAllVehicle">
-                <p className="speedAllVehicle">90</p>
-                <p className="unitAllVehicle">km/h</p>
-              </div>
-            </div>
-          </div>
-          <div className="statusBarAllVehicle">
-            <p className="statusAllVehicle">Đang chạy 54 km/h</p>
-          </div>
-          <div className="statusAddressAllVehicle">
-            <FaMapMarkerAlt className="mapIconAllVehicle" />
-            <p>2661 Đại Lộ Hùng Vương, P.Ba Ngòi, Khánh Hoà, Việt Nam</p>
+       {allVehicles.map(each => {
+  const isOpen = selectedVehicleId === each.id;
 
-            <div className="popupWrapper">
-              <button
-                className="moreDetailAllVehicle"
-                onClick={() => setIsOptionDetailOpen((prev) => !prev)}
-              >
-                <HiDotsVertical className="moreDetailIconAllVehicle" />
-              </button>
+  return (
+    <div key={each.id} className="vehicleDetailAllVehicleContainer" onClick={() => {
+      getPositionOfVehicle(each.id);
+      setVehicleType(each.vehicleType);
+    }}>
+      {/* ... */}
+      <div className="popupWrapper">
+        <button
+          className="moreDetailAllVehicle"
+          onClick={(e) => {
+            e.stopPropagation();
+            setSelectedVehicleId(isOpen ? null : each.id);
+          }}
+        >
+          {each.brand}
+          <HiDotsVertical className="moreDetailIconAllVehicle" />
+        </button>
 
-              {isOptionDetailOpen && (
-                <div ref={popupRef} className="optionPopupWrapper">
-                  <OptionDetail onClose={handleOptionClose} />
-                </div>
-              )}
-            </div>
+        {isOpen && (
+          <div ref={popupRef} className="optionPopupWrapper">
+            <OptionDetail onClose={handleOptionClose} />
           </div>
-        </div>)}
+        )}
+      </div>
+    </div>
+  );
+})}
+
       </div>
 
       <VehicleDetail

@@ -25,15 +25,6 @@ namespace VehicleManagementSystem.Controllers
         }
 
 
-
-        [HttpPost]
-        public async Task<IActionResult> CreateVehicle([FromBody] Vehicle vehicle) => await _service.CreateVehicle(vehicle);
-
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateVehicle(int id, [FromBody] Vehicle vehicle) => await _service.UpdateVehicle(id, vehicle);
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteVehicle(int id) => await _service.DeleteVehicle(id);
     }
 
 }

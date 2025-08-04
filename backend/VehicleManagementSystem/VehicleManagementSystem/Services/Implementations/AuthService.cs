@@ -4,10 +4,13 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Text.RegularExpressions;
 using VehicleManagementSystem.Data;
-using VehicleManagementSystem.Models.Entities;
-using VehicleManagementSystem.Services.Interfaces;
 using VehicleManagementSystem.Models.DTO;
+using VehicleManagementSystem.Models.Entities;
+using VehicleManagementSystem.Services.Implementations;
+using VehicleManagementSystem.Services.Interfaces;
+
 namespace VehicleManagementSystem.Services.Implementations
 {
     public class AuthService : IAuthService
@@ -52,12 +55,36 @@ namespace VehicleManagementSystem.Services.Implementations
             return tokenHandler.WriteToken(token);
         }
 
-        public async Task<IActionResult> RegisterWithVehicle(RegisterRequest request)
+        public async Task<IActionResult> RegisterUserAndVehicleAsync(RegisterRequest request)
         {
-            // Basic validation for empty or null fields
+            var validationResult = await ValidateRegisterRequestAsync(request);
+            if (validationResult != null) return validationResult;
+
+            using var transaction = await _context.Database.BeginTransactionAsync();
+
+            try
+            {
+                var user = await CreateUserAsync(request);
+                await AddVehicleToUserAsync(user.Id, request);
+
+                await transaction.CommitAsync();
+                return new OkObjectResult(new { message = "User and vehicle registered successfully" });
+            }
+            catch (Exception ex)
+            {
+                await transaction.RollbackAsync();
+                return new ObjectResult(new { message = "Registration failed", error = ex.Message }) { StatusCode = 500 };
+            }
+        }
+
+    
+        private async Task<IActionResult?> ValidateRegisterRequestAsync(RegisterRequest request)
+        {
+            // Check for required fields
             if (string.IsNullOrWhiteSpace(request.Name) ||
                 string.IsNullOrWhiteSpace(request.Email) ||
                 string.IsNullOrWhiteSpace(request.Password) ||
+                string.IsNullOrWhiteSpace(request.ConfirmPassword) ||
                 string.IsNullOrWhiteSpace(request.IMEI) ||
                 string.IsNullOrWhiteSpace(request.LicensePlate) ||
                 string.IsNullOrWhiteSpace(request.SimPhoneNumber) ||
@@ -66,28 +93,28 @@ namespace VehicleManagementSystem.Services.Implementations
                 return new BadRequestObjectResult(new { message = "Please fill in all required fields." });
             }
 
-            // SIM phone number: only digits, and length = 10 or 11
-            if (!System.Text.RegularExpressions.Regex.IsMatch(request.SimPhoneNumber, @"^\d{10,11}$"))
+            // SIM phone number must be 10 or 11 digits
+            if (!Regex.IsMatch(request.SimPhoneNumber, @"^\d{10,11}$"))
             {
                 return new BadRequestObjectResult(new { message = "SIM phone number must be 10 or 11 digits." });
             }
 
-            // Email format validation (simple regex)
-            if (!System.Text.RegularExpressions.Regex.IsMatch(request.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            // Validate email format
+            if (!Regex.IsMatch(request.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
             {
                 return new BadRequestObjectResult(new { message = "Invalid email format." });
             }
 
-            // Password length validation
-            if (!System.Text.RegularExpressions.Regex.IsMatch(request.Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"))
+            // Validate password strength (min 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special char)
+            if (!Regex.IsMatch(request.Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"))
             {
                 return new BadRequestObjectResult(new
                 {
-                    message = "Invalid password."
+                    message = "Password must be at least 8 characters and include uppercase, lowercase, number, and special character."
                 });
             }
 
-            // Confirm password match
+            // Password confirmation check
             if (request.Password != request.ConfirmPassword)
             {
                 return new BadRequestObjectResult(new { message = "Password and confirm password do not match." });
@@ -99,56 +126,58 @@ namespace VehicleManagementSystem.Services.Implementations
                 return new BadRequestObjectResult(new { message = "Email already exists." });
             }
 
-            using var transaction = await _context.Database.BeginTransactionAsync();
-            try
+            // Check for duplicate IMEI
+            if (await _context.Vehicles.AnyAsync(v => v.IMEI == request.IMEI))
             {
-                // Create user entity
-                var user = new User
-                {
-                    Name = request.Name,
-                    Email = request.Email,
-                    Address = request.Address,
-                    Password = BCrypt.Net.BCrypt.HashPassword(request.Password)
-                };
-
-                // Get default role
-                var role = await _context.Role.FirstOrDefaultAsync(r => r.RoleName == "User");
-                if (role == null)
-                {
-                    return new BadRequestObjectResult(new { message = "Default role not found." });
-                }
-
-                user.UserRoles = new List<UserRole> { new UserRole { User = user, Role = role } };
-
-                // Create vehicle entity
-                var vehicle = new Vehicle
-                {
-                    IMEI = request.IMEI,
-                    LicensePlate = request.LicensePlate,
-                    SimPhoneNumber = request.SimPhoneNumber,
-                    Brand = request.Brand,
-                    VehicleType = request.VehicleType,
-                    User = user,
-                    CreatedAt = DateTime.UtcNow,
-                };
-
-                user.Vehicles = new List<Vehicle> { vehicle };
-
-                // Save to database
-                _context.Users.Add(user);
-                await _context.SaveChangesAsync();
-                await transaction.CommitAsync();
-
-                return new OkObjectResult(new { message = "User and vehicle registered successfully" });
+                return new BadRequestObjectResult(new { message = "IMEI already exists." });
             }
-            catch (Exception ex)
+
+            // Check for duplicate License Plate
+            if (await _context.Vehicles.AnyAsync(v => v.LicensePlate == request.LicensePlate))
             {
-                await transaction.RollbackAsync();
-                return new ObjectResult(new { message = "Failed to register user and vehicle", error = ex.Message })
-                {
-                    StatusCode = 500
-                };
+                return new BadRequestObjectResult(new { message = "License plate already exists." });
             }
+
+            return null;
         }
+
+        private async Task<User> CreateUserAsync(RegisterRequest request)
+        {
+            var user = new User
+            {
+                Name = request.Name,
+                Email = request.Email,
+                Address = request.Address,
+                Password = BCrypt.Net.BCrypt.HashPassword(request.Password),
+            };
+
+            var role = await _context.Role.FirstOrDefaultAsync(r => r.RoleName == "User");
+            if (role == null) throw new Exception("Default role not found.");
+
+            user.UserRoles = new List<UserRole> { new UserRole { User = user, Role = role } };
+
+            _context.Users.Add(user);
+            await _context.SaveChangesAsync();
+
+            return user;
+        }
+
+        private async Task AddVehicleToUserAsync(int userId, RegisterRequest request)
+        {
+            var vehicle = new Vehicle
+            {
+                UserId = userId,
+                IMEI = request.IMEI,
+                LicensePlate = request.LicensePlate,
+                SimPhoneNumber = request.SimPhoneNumber,
+                VehicleType = request.VehicleType,
+                Brand = request.Brand,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            _context.Vehicles.Add(vehicle);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

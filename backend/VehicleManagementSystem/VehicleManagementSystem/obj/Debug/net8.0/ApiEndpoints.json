@@ -111,59 +111,6 @@
   },
   {
     "ContainingType": "VehicleManagementSystem.Controllers.VehiclesController",
-    "Method": "CreateVehicle",
-    "RelativePath": "api/vehicles",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "vehicle",
-        "Type": "Vehicle",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "VehicleManagementSystem.Controllers.VehiclesController",
-    "Method": "UpdateVehicle",
-    "RelativePath": "api/vehicles/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "vehicle",
-        "Type": "Vehicle",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "VehicleManagementSystem.Controllers.VehiclesController",
-    "Method": "DeleteVehicle",
-    "RelativePath": "api/vehicles/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "VehicleManagementSystem.Controllers.VehiclesController",
     "Method": "GetMyVehicles",
     "RelativePath": "api/vehicles/all-vehicles",
     "HttpMethod": "GET",

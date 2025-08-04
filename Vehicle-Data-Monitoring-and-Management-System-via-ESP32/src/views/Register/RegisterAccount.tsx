@@ -8,26 +8,29 @@ import { GrMapLocation } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 
 const RegisterAccount = ({ onRegister, defaultData }: any) => {
-  const [accountInfo, setAccountInfo] = useState({
-    name: defaultData.name || "",
-    email: defaultData.email || "",
-    address: defaultData.address || "",
-    password: defaultData.password || "",
-  });
+ const [accountInfo, setAccountInfo] = useState({
+  name: defaultData.name || "",
+  email: defaultData.email || "",
+  address: defaultData.address || "",
+  password: defaultData.password || "",
+  confirmPassword: "",
+});
 
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
-    address: "",
-    password: "",
-  });
+ const [errors, setErrors] = useState({
+  name: "",
+  email: "",
+  address: "",
+  password: "",
+  confirmPassword: "",
+});
 
-  const [shake, setShake] = useState({
-    name: false,
-    email: false,
-    address: false,
-    password: false,
-  });
+const [shake, setShake] = useState({
+  name: false,
+  email: false,
+  address: false,
+  password: false,
+  confirmPassword: false,
+});
 
   const navigate = useNavigate();
 
@@ -59,7 +62,7 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
 
   const handleSubmit = () => {
     let valid = true;
-    let newErrors = { name: "", email: "", address: "", password: "" };
+    let newErrors = { name: "", email: "", address: "", password: "", confirmPassword: "" };
 
     if (!accountInfo.name) {
       newErrors.name = "Bắt buộc";
@@ -91,6 +94,16 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
       newErrors.password =
         "Mật khẩu phải ≥8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt";
       triggerShake("password");
+      valid = false;
+    }
+
+    if (!accountInfo.confirmPassword) {
+      newErrors.confirmPassword = "Bắt buộc";
+      triggerShake("confirmPassword");
+      valid = false;
+    } else if (accountInfo.confirmPassword !== accountInfo.password) {
+      newErrors.confirmPassword = "Mật khẩu nhập lại không khớp";
+      triggerShake("confirmPassword");
       valid = false;
     }
 
@@ -215,6 +228,33 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
               </div>
             )}
           </div>
+{/* Nhập lại mật khẩu */}
+<div className="inputGroup">
+  <p>
+    Nhập lại mật khẩu <span>*</span>
+  </p>
+  <div
+    className={`password ${shake.confirmPassword ? "shake" : ""} ${
+      errors.confirmPassword ? "error" : ""
+    }`}
+  >
+    <IoIosLock className="passwordIcon" />
+    <input
+      type="password"
+      name="confirmPassword"
+      placeholder="Nhập lại mật khẩu"
+      value={accountInfo.confirmPassword}
+      onChange={handleChange}
+      className="passwordInput"
+    />
+  </div>
+  {errors.confirmPassword && (
+    <div className="errorNotification">
+      <MdOutlineReportProblem />
+      <p className="errorMessage">{errors.confirmPassword}</p>
+    </div>
+  )}
+</div>
 
           <button
             type="submit"

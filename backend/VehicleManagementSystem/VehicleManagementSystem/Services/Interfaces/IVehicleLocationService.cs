@@ -7,6 +7,7 @@ namespace VehicleManagementSystem.Services.Interfaces
     {
         Task<IActionResult> UpdateLocation(LocationDto request);
         Task<LocationDto?> GetCurrentLocation(int vehicleId);
+        Task<bool> IsVehicleOwnedByUser(int vehicleId, int userId);
         Task<List<LocationDto>> GetLocationHistory(int vehicleId, DateTime startTime, DateTime endTime);
     }
 }

@@ -27,8 +27,13 @@ namespace VehicleManagementSystem.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login(LoginRequest request) => await _authService.Login(request);
 
+        //[HttpPost("register")]
+        //public async Task<IActionResult> RegisterWithVehicle(RegisterRequest request) => await _authService.RegisterWithVehicle(request);
         [HttpPost("register")]
-        public async Task<IActionResult> RegisterWithVehicle(RegisterRequest request) => await _authService.RegisterWithVehicle(request);
+        public async Task<IActionResult> RegisterWithVehicle([FromBody] RegisterRequest request)
+        {
+            return await _authService.RegisterUserAndVehicleAsync(request);
+        }
     }
 
 }
