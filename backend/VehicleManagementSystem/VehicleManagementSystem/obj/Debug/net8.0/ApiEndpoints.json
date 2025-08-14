@@ -32,23 +32,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "VehicleManagementSystem.Controllers.VehicleLocationController",
-    "Method": "UpdateLocation",
-    "RelativePath": "api/locations",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "request",
-        "Type": "VehicleManagementSystem.Models.DTO.LocationDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "VehicleManagementSystem.Controllers.VehicleLocationController",
+    "ContainingType": "VehicleManagementSystem.Controllers.LocationDataController",
     "Method": "GetCurrentLocation",
     "RelativePath": "api/locations/{vehicleId}/current",
     "HttpMethod": "GET",
@@ -64,7 +48,7 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "VehicleManagementSystem.Controllers.VehicleLocationController",
+    "ContainingType": "VehicleManagementSystem.Controllers.LocationDataController",
     "Method": "GetLocationHistoryByTime",
     "RelativePath": "api/locations/{vehicleId}/history-by-time",
     "HttpMethod": "GET",
@@ -85,6 +69,22 @@
         "Name": "endTime",
         "Type": "System.DateTime",
         "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "VehicleManagementSystem.Controllers.LocationDataController",
+    "Method": "UpdateLocation",
+    "RelativePath": "api/locations/update-location",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "VehicleManagementSystem.Models.DTO.LocationDataRequest",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

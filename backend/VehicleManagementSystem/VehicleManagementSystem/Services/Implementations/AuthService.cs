@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
 using VehicleManagementSystem.Data;
+using VehicleManagementSystem.Exceptions;
 using VehicleManagementSystem.Models.DTO;
 using VehicleManagementSystem.Models.Entities;
-using VehicleManagementSystem.Services.Implementations;
 using VehicleManagementSystem.Services.Interfaces;
 
 namespace VehicleManagementSystem.Services.Implementations
@@ -28,10 +29,76 @@ namespace VehicleManagementSystem.Services.Implementations
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == request.Email);
             if (user == null || !BCrypt.Net.BCrypt.Verify(request.Password, user.Password))
-                return new UnauthorizedObjectResult("Invalid email or password");
+                throw new UnauthorizedException("Invalid email or password");
 
-            string token = GenerateJwtToken(user);
-            return new OkObjectResult(new { token });
+            var token = GenerateJwtToken(user);
+
+            var response = new ApiResponse<object>(
+                statusCode: 200,
+                message: "Login successful",
+                data: new { token }
+            );
+
+            return new OkObjectResult(response);
+        }
+
+        //public async Task<IActionResult> RegisterUserAndVehicleAsync(RegisterRequest request)
+        //{
+        //    await ValidateRegisterRequestAsync(request);
+
+        //    await using var transaction = await _context.Database.BeginTransactionAsync();
+        //    try
+        //    {
+        //        var user = await CreateUserAsync(request);
+        //        await AddVehicleToUserAsync(user.Id, request);
+
+        //        await transaction.CommitAsync();
+
+        //        var response = new ApiResponse<object>(
+        //            statusCode: 201,
+        //            message: "Registration successful",
+        //            data: null
+        //        );
+
+        //        return new OkObjectResult(response);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        await transaction.RollbackAsync();
+        //        throw new InternalServerErrorException("An unexpected error occurred. Please try again later.");
+        //    }
+        //}
+
+        public async Task<IActionResult> RegisterUserAndVehicleAsync(RegisterRequest request)
+        {
+            await ValidateRegisterRequestAsync(request);
+
+            await using var transaction = await _context.Database.BeginTransactionAsync();
+            try
+            {
+                // 1. Create user
+                var user = await CreateUserAsync(request);
+
+                // 2. Create vehicle and get it back
+                var vehicle = await AddVehicleToUserAsync(user.Id, request);
+
+                await _context.SaveChangesAsync();
+
+                await transaction.CommitAsync();
+
+                var response = new ApiResponse<object>(
+                    statusCode: 200,
+                    message: "Registration successful",
+                    data: null
+                );
+
+                return new OkObjectResult(response);
+            }
+            catch (Exception)
+            {
+                await transaction.RollbackAsync();
+                throw new InternalServerErrorException("An unexpected error occurred. Please try again later.");
+            }
         }
 
         private string GenerateJwtToken(User user)
@@ -39,122 +106,86 @@ namespace VehicleManagementSystem.Services.Implementations
             var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
             var claims = new[]
             {
-            new Claim(ClaimTypes.Name, user.Email),
-            new Claim("UserId", user.Id.ToString())
-        };
+                new Claim(ClaimTypes.Name, user.Email),
+                new Claim("UserId", user.Id.ToString())
+            };
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
                 Subject = new ClaimsIdentity(claims),
                 Expires = DateTime.UtcNow.AddHours(4),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+                SigningCredentials = new SigningCredentials(
+                    new SymmetricSecurityKey(key),
+                    SecurityAlgorithms.HmacSha256Signature)
             };
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+            return tokenHandler.WriteToken(tokenHandler.CreateToken(tokenDescriptor));
         }
 
-        public async Task<IActionResult> RegisterUserAndVehicleAsync(RegisterRequest request)
+        private async Task ValidateRegisterRequestAsync(RegisterRequest request)
         {
-            var validationResult = await ValidateRegisterRequestAsync(request);
-            if (validationResult != null) return validationResult;
+            var errors = new List<FieldError>();
 
-            using var transaction = await _context.Database.BeginTransactionAsync();
+            if (string.IsNullOrWhiteSpace(request.Name))
+                errors.Add(new FieldError { Field = "Name", Error = "Name is required." });
+            if (string.IsNullOrWhiteSpace(request.Email))
+                errors.Add(new FieldError { Field = "Email", Error = "Email is required." });
+            if (string.IsNullOrWhiteSpace(request.Password))
+                errors.Add(new FieldError { Field = "Password", Error = "Password is required." });
+            if (string.IsNullOrWhiteSpace(request.ConfirmPassword))
+                errors.Add(new FieldError { Field = "ConfirmPassword", Error = "Confirm password is required." });
+            if (string.IsNullOrWhiteSpace(request.IMEI))
+                errors.Add(new FieldError { Field = "IMEI", Error = "IMEI is required." });
+            if (string.IsNullOrWhiteSpace(request.LicensePlate))
+                errors.Add(new FieldError { Field = "LicensePlate", Error = "License plate is required." });
+            if (string.IsNullOrWhiteSpace(request.SimPhoneNumber))
+                errors.Add(new FieldError { Field = "SimPhoneNumber", Error = "SIM phone number is required." });
+            if (string.IsNullOrWhiteSpace(request.VehicleType))
+                errors.Add(new FieldError { Field = "VehicleType", Error = "Vehicle type is required." });
 
-            try
-            {
-                var user = await CreateUserAsync(request);
-                await AddVehicleToUserAsync(user.Id, request);
+            if (!string.IsNullOrWhiteSpace(request.SimPhoneNumber) &&
+                !Regex.IsMatch(request.SimPhoneNumber, @"^\d{10,11}$"))
+                errors.Add(new FieldError { Field = "SimPhoneNumber", Error = "SIM phone number must be 10 or 11 digits." });
 
-                await transaction.CommitAsync();
-                return new OkObjectResult(new { message = "User and vehicle registered successfully" });
-            }
-            catch (Exception ex)
-            {
-                await transaction.RollbackAsync();
-                return new ObjectResult(new { message = "Registration failed", error = ex.Message }) { StatusCode = 500 };
-            }
-        }
+            if (!string.IsNullOrWhiteSpace(request.Email) &&
+                !Regex.IsMatch(request.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+                errors.Add(new FieldError { Field = "Email", Error = "Invalid email format." });
 
-    
-        private async Task<IActionResult?> ValidateRegisterRequestAsync(RegisterRequest request)
-        {
-            // Check for required fields
-            if (string.IsNullOrWhiteSpace(request.Name) ||
-                string.IsNullOrWhiteSpace(request.Email) ||
-                string.IsNullOrWhiteSpace(request.Password) ||
-                string.IsNullOrWhiteSpace(request.ConfirmPassword) ||
-                string.IsNullOrWhiteSpace(request.IMEI) ||
-                string.IsNullOrWhiteSpace(request.LicensePlate) ||
-                string.IsNullOrWhiteSpace(request.SimPhoneNumber) ||
-                string.IsNullOrWhiteSpace(request.VehicleType))
-            {
-                return new BadRequestObjectResult(new { message = "Please fill in all required fields." });
-            }
+            if (!string.IsNullOrWhiteSpace(request.Password) &&
+                !Regex.IsMatch(request.Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"))
+                errors.Add(new FieldError { Field = "Password", Error = "Password must be at least 8 characters and include uppercase, lowercase, number, and special character." });
 
-            // SIM phone number must be 10 or 11 digits
-            if (!Regex.IsMatch(request.SimPhoneNumber, @"^\d{10,11}$"))
-            {
-                return new BadRequestObjectResult(new { message = "SIM phone number must be 10 or 11 digits." });
-            }
-
-            // Validate email format
-            if (!Regex.IsMatch(request.Email, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
-            {
-                return new BadRequestObjectResult(new { message = "Invalid email format." });
-            }
-
-            // Validate password strength (min 8 characters, 1 uppercase, 1 lowercase, 1 number, 1 special char)
-            if (!Regex.IsMatch(request.Password, @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"))
-            {
-                return new BadRequestObjectResult(new
-                {
-                    message = "Password must be at least 8 characters and include uppercase, lowercase, number, and special character."
-                });
-            }
-
-            // Password confirmation check
             if (request.Password != request.ConfirmPassword)
-            {
-                return new BadRequestObjectResult(new { message = "Password and confirm password do not match." });
-            }
+                errors.Add(new FieldError { Field = "ConfirmPassword", Error = "Password and confirm password do not match." });
 
-            // Check if email already exists
             if (await _context.Users.AnyAsync(x => x.Email == request.Email))
-            {
-                return new BadRequestObjectResult(new { message = "Email already exists." });
-            }
+                errors.Add(new FieldError { Field = "Email", Error = "Email already exists." });
 
-            // Check for duplicate IMEI
             if (await _context.Vehicles.AnyAsync(v => v.IMEI == request.IMEI))
-            {
-                return new BadRequestObjectResult(new { message = "IMEI already exists." });
-            }
+                errors.Add(new FieldError { Field = "IMEI", Error = "IMEI already exists." });
 
-            // Check for duplicate License Plate
             if (await _context.Vehicles.AnyAsync(v => v.LicensePlate == request.LicensePlate))
-            {
-                return new BadRequestObjectResult(new { message = "License plate already exists." });
-            }
+                errors.Add(new FieldError { Field = "LicensePlate", Error = "License plate already exists." });
 
-            return null;
+            if (errors.Any())
+                throw new BadRequestException("Validation failed", errors);
         }
 
         private async Task<User> CreateUserAsync(RegisterRequest request)
         {
+            var role = await _context.Role.FirstOrDefaultAsync(r => r.RoleName == "User");
+            if (role == null)
+                throw new InternalServerErrorException("Default role not found.");
+
             var user = new User
             {
                 Name = request.Name,
                 Email = request.Email,
                 Address = request.Address,
                 Password = BCrypt.Net.BCrypt.HashPassword(request.Password),
+                UserRoles = new List<UserRole> { new UserRole { Role = role } }
             };
-
-            var role = await _context.Role.FirstOrDefaultAsync(r => r.RoleName == "User");
-            if (role == null) throw new Exception("Default role not found.");
-
-            user.UserRoles = new List<UserRole> { new UserRole { User = user, Role = role } };
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
@@ -162,7 +193,7 @@ namespace VehicleManagementSystem.Services.Implementations
             return user;
         }
 
-        private async Task AddVehicleToUserAsync(int userId, RegisterRequest request)
+        private async Task<Vehicle> AddVehicleToUserAsync(int userId, RegisterRequest request)
         {
             var vehicle = new Vehicle
             {
@@ -177,6 +208,8 @@ namespace VehicleManagementSystem.Services.Implementations
 
             _context.Vehicles.Add(vehicle);
             await _context.SaveChangesAsync();
+
+            return vehicle; // return for later use
         }
 
     }

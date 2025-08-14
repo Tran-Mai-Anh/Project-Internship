@@ -3,32 +3,108 @@
   "WorkspaceRootPath": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\controllers\\vehiclelocationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\controllers\\vehiclelocationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\controllers\\locationdatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\controllers\\locationdatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\controllers\\vehiclescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\controllers\\vehiclescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\locationdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\implementations\\locationdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\interfaces\\ilocationdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\interfaces\\ilocationdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\models\\dto\\tripsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\models\\dto\\tripsegment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\models\\entities\\locationdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\models\\entities\\locationdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\implementations\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\interfaces\\ivehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\interfaces\\ivehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\data\\postsqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\data\\postsqldbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\models\\entities\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\models\\entities\\vehicle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\models\\dto\\locationdatarequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\models\\dto\\locationdatarequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\models\\dto\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\models\\dto\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\middlewares\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\middlewares\\exceptionhandlingmiddleware.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\exceptions\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\exceptions\\badrequestexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\models\\dto\\fielderror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\models\\dto\\fielderror.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\models\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\models\\dto\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\models\\dto\\apiresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\interfaces\\iauthservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\interfaces\\ivehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\interfaces\\ivehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\exceptions\\internalservererrorexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\exceptions\\internalservererrorexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\exceptions\\conflictexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\exceptions\\conflictexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\exceptions\\notfoundexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\exceptions\\unauthorizedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\exceptions\\unauthorizedexception.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,63 +114,298 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 19,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TripSegment.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\TripSegment.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\DTO\\TripSegment.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\TripSegment.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Models\\DTO\\TripSegment.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAzwAkAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T09:04:36.021Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PostSQLDbContext.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Data\\PostSQLDbContext.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Data\\PostSQLDbContext.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Data\\PostSQLDbContext.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Data\\PostSQLDbContext.cs",
+              "ViewState": "AgIAACgAAAAAAAAAAAAwwC8AAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T08:13:25.683Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LocationDataRequest.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\LocationDataRequest.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\DTO\\LocationDataRequest.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\LocationDataRequest.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Models\\DTO\\LocationDataRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-14T04:58:26.729Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Controllers\\UserController.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\UserController.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T15:28:10.743Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ILocationDataService.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Interfaces\\ILocationDataService.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Services\\Interfaces\\ILocationDataService.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Interfaces\\ILocationDataService.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Services\\Interfaces\\ILocationDataService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:28:05.555Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "LocationData.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\Entities\\LocationData.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\Entities\\LocationData.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\Entities\\LocationData.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Models\\Entities\\LocationData.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAA/wAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:26:58.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Vehicle.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\Entities\\Vehicle.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\Entities\\Vehicle.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\Entities\\Vehicle.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Models\\Entities\\Vehicle.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAkwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:26:33.189Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "FieldError.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\FieldError.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\DTO\\FieldError.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\FieldError.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Models\\DTO\\FieldError.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-12T10:19:58.761Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "ApiResponse.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\ApiResponse.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\DTO\\ApiResponse.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\ApiResponse.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Models\\DTO\\ApiResponse.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAA8wAsAAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T09:58:40.71Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "InternalServerErrorException.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\InternalServerErrorException.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Exceptions\\InternalServerErrorException.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\InternalServerErrorException.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Exceptions\\InternalServerErrorException.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAxwAcAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T09:48:54.413Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "ConflictException.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\ConflictException.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Exceptions\\ConflictException.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\ConflictException.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Exceptions\\ConflictException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T09:47:51.085Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "ExceptionHandlingMiddleware.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Middlewares\\ExceptionHandlingMiddleware.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Middlewares\\ExceptionHandlingMiddleware.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Middlewares\\ExceptionHandlingMiddleware.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Middlewares\\ExceptionHandlingMiddleware.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAIwD4AAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T09:34:07.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "NotFoundException.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\NotFoundException.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Exceptions\\NotFoundException.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\NotFoundException.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Exceptions\\NotFoundException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T08:52:21.952Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "LocationDataService.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\LocationDataService.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Services\\Implementations\\LocationDataService.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\LocationDataService.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Services\\Implementations\\LocationDataService.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwFgAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T08:50:55.014Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "IAuthService.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Interfaces\\IAuthService.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Services\\Interfaces\\IAuthService.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Interfaces\\IAuthService.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Services\\Interfaces\\IAuthService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T08:48:22.531Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "UnauthorizedException.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\UnauthorizedException.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Exceptions\\UnauthorizedException.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\UnauthorizedException.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Exceptions\\UnauthorizedException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T08:47:49.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "BadRequestException.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\BadRequestException.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Exceptions\\BadRequestException.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Exceptions\\BadRequestException.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Exceptions\\BadRequestException.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T08:46:17.986Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Controllers\\AuthController.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAzwAkAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T02:30:21.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Program.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Program.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Program.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Program.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Program.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAmwE8AAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-06T01:54:24.352Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "VehicleLocationController.cs",
-              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\VehicleLocationController.cs",
-              "RelativeDocumentMoniker": "VehicleManagementSystem\\Controllers\\VehicleLocationController.cs",
-              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\VehicleLocationController.cs",
-              "RelativeToolTip": "VehicleManagementSystem\\Controllers\\VehicleLocationController.cs",
-              "ViewState": "AgIAADIAAAAAAAAAAAAgwDsAAAAAAAAAAAAAAA==",
+              "Title": "LocationDataController.cs",
+              "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\LocationDataController.cs",
+              "RelativeDocumentMoniker": "VehicleManagementSystem\\Controllers\\LocationDataController.cs",
+              "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\LocationDataController.cs",
+              "RelativeToolTip": "VehicleManagementSystem\\Controllers\\LocationDataController.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAkwEoAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-04T07:37:23.488Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "VehiclesController.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\VehiclesController.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Controllers\\VehiclesController.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\VehiclesController.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Controllers\\VehiclesController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAkAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-04T07:30:46.456Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 18,
               "Title": "User.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\Entities\\User.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\Entities\\User.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\Entities\\User.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Models\\Entities\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:22:22.721Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T07:22:22.721Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 11,
               "Title": "RegisterRequest.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\RegisterRequest.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\DTO\\RegisterRequest.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\RegisterRequest.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Models\\DTO\\RegisterRequest.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-04T07:21:02.778Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 21,
               "Title": "IVehicleService.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Interfaces\\IVehicleService.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Services\\Interfaces\\IVehicleService.cs",
@@ -102,31 +413,30 @@
               "RelativeToolTip": "VehicleManagementSystem\\Services\\Interfaces\\IVehicleService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:05:37.268Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T07:05:37.268Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "VehicleService.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\VehicleService.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Services\\Implementations\\VehicleService.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\VehicleService.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Services\\Implementations\\VehicleService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-04T07:05:17.722Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 7,
               "Title": "AuthService.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\AuthService.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Services\\Implementations\\AuthService.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\AuthService.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Services\\Implementations\\AuthService.cs",
-              "ViewState": "AgIAAD8AAAAAAAAAAAAQwEgAAAAgAAAAAAAAAA==",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAuwFsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-07-24T15:11:14.965Z",
               "EditorCaption": ""

@@ -22,6 +22,44 @@ namespace VehicleManagementSystem.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("LocationData", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("IMEI")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<double>("Lat")
+                        .HasColumnType("double precision");
+
+                    b.Property<double>("Long")
+                        .HasColumnType("double precision");
+
+                    b.Property<int>("Pin")
+                        .HasColumnType("integer");
+
+                    b.Property<double>("Speed")
+                        .HasColumnType("double precision");
+
+                    b.Property<DateTime>("Timestamp")
+                        .HasColumnType("timestamp with time zone");
+
+                    b.Property<int>("VehicleId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("VehicleId", "Timestamp")
+                        .HasDatabaseName("IX_VehicleLocation_VehicleId_Timestamp");
+
+                    b.ToTable("VehicleLocations");
+                });
+
             modelBuilder.Entity("Vehicle", b =>
                 {
                     b.Property<int>("Id")
@@ -63,87 +101,6 @@ namespace VehicleManagementSystem.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Vehicles");
-                });
-
-            modelBuilder.Entity("VehicleData", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CAN_ID")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("DLC")
-                        .HasColumnType("integer");
-
-                    b.Property<bool?>("DoorStatus")
-                        .HasColumnType("boolean");
-
-                    b.Property<int?>("EngineTemp")
-                        .HasColumnType("integer");
-
-                    b.Property<decimal?>("FuelLevel")
-                        .HasColumnType("numeric");
-
-                    b.Property<double>("Lat")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("Long")
-                        .HasColumnType("double precision");
-
-                    b.Property<int?>("RPM")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("Speed")
-                        .HasColumnType("integer");
-
-                    b.Property<DateTime>("Timestamp")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int>("VehicleId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("VehicleId");
-
-                    b.ToTable("VehicleDatas");
-                });
-
-            modelBuilder.Entity("VehicleLocation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<double>("Lat")
-                        .HasColumnType("double precision");
-
-                    b.Property<double>("Long")
-                        .HasColumnType("double precision");
-
-                    b.Property<DateTime>("Timestamp")
-                        .HasColumnType("timestamp with time zone");
-
-                    b.Property<int?>("VehicleDataId")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("VehicleId")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("VehicleDataId");
-
-                    b.HasIndex("VehicleId", "Timestamp")
-                        .HasDatabaseName("IX_VehicleLocation_VehicleId_Timestamp");
-
-                    b.ToTable("VehicleLocations");
                 });
 
             modelBuilder.Entity("VehicleManagementSystem.Models.Entities.Role", b =>
@@ -209,6 +166,17 @@ namespace VehicleManagementSystem.Migrations
                     b.ToTable("UserRole");
                 });
 
+            modelBuilder.Entity("LocationData", b =>
+                {
+                    b.HasOne("Vehicle", "Vehicle")
+                        .WithMany("VehicleLocations")
+                        .HasForeignKey("VehicleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Vehicle");
+                });
+
             modelBuilder.Entity("Vehicle", b =>
                 {
                     b.HasOne("VehicleManagementSystem.Models.Entities.User", "User")
@@ -217,32 +185,6 @@ namespace VehicleManagementSystem.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("VehicleData", b =>
-                {
-                    b.HasOne("Vehicle", "Vehicle")
-                        .WithMany("VehicleDatas")
-                        .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vehicle");
-                });
-
-            modelBuilder.Entity("VehicleLocation", b =>
-                {
-                    b.HasOne("VehicleData", null)
-                        .WithMany("VehicleLocations")
-                        .HasForeignKey("VehicleDataId");
-
-                    b.HasOne("Vehicle", "Vehicle")
-                        .WithMany("VehicleLocations")
-                        .HasForeignKey("VehicleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Vehicle");
                 });
 
             modelBuilder.Entity("VehicleManagementSystem.Models.Entities.UserRole", b =>
@@ -265,13 +207,6 @@ namespace VehicleManagementSystem.Migrations
                 });
 
             modelBuilder.Entity("Vehicle", b =>
-                {
-                    b.Navigation("VehicleDatas");
-
-                    b.Navigation("VehicleLocations");
-                });
-
-            modelBuilder.Entity("VehicleData", b =>
                 {
                     b.Navigation("VehicleLocations");
                 });

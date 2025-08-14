@@ -24,7 +24,7 @@ public class Vehicle
 
     public int? UserId { get; set; }
     public User? User { get; set; }
-    public ICollection<VehicleData>? VehicleDatas { get; set; }
-    public ICollection<VehicleLocation>? VehicleLocations { get; set; }
+    //public ICollection<VehicleData>? VehicleDatas { get; set; }
+    public ICollection<LocationData>? VehicleLocations { get; set; }
 
 }

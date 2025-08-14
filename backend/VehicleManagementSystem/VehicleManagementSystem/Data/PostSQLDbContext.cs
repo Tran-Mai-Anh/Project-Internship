@@ -10,8 +10,8 @@ namespace VehicleManagementSystem.Data
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<VehicleData> VehicleDatas { get; set; }
-        public DbSet<VehicleLocation> VehicleLocations { get; set; }
+        //public DbSet<VehicleData> VehicleDatas { get; set; }
+        public DbSet<LocationData> VehicleLocations { get; set; }
         public DbSet<Vehicle> Vehicles { get; set; }
         public DbSet<Role> Role { get; set; }
         public DbSet<UserRole> UserRole { get; set; }
@@ -19,7 +19,7 @@ namespace VehicleManagementSystem.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<VehicleLocation>()
+            modelBuilder.Entity<LocationData>()
                .HasIndex(v => new { v.VehicleId, v.Timestamp })
                .HasDatabaseName("IX_VehicleLocation_VehicleId_Timestamp");
 
@@ -31,14 +31,14 @@ namespace VehicleManagementSystem.Data
                 .OnDelete(DeleteBehavior.Cascade);
 
             // VehicleData belongs to Vehicle (One-to-Many)
-            modelBuilder.Entity<VehicleData>()
-                .HasOne(vd => vd.Vehicle)
-                .WithMany(v => v.VehicleDatas)
-                .HasForeignKey(vd => vd.VehicleId)
-                .OnDelete(DeleteBehavior.Cascade);
+            //modelBuilder.Entity<VehicleData>()
+            //    .HasOne(vd => vd.Vehicle)
+            //    .WithMany(v => v.VehicleDatas)
+            //    .HasForeignKey(vd => vd.VehicleId)
+            //    .OnDelete(DeleteBehavior.Cascade);
 
             // VehicleLocation belongs to Vehicle (One-to-One)
-            modelBuilder.Entity<VehicleLocation>()
+            modelBuilder.Entity<LocationData>()
                 .HasOne(vl => vl.Vehicle)
                 .WithMany(v => v.VehicleLocations)
                 .HasForeignKey(vl => vl.VehicleId)

@@ -284,10 +284,10 @@ F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementS
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.build.json.cache
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.development.json
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\VehicleM.A34F0410.Up2Date
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\VehicleManagementSystem.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\refint\VehicleManagementSystem.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\VehicleManagementSystem.pdb
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\VehicleManagementSystem.genruntimeconfig.cache
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\ref\VehicleManagementSystem.dll
+F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
