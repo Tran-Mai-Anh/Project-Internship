@@ -1,8 +1,9 @@
 import axios from "axios";
+import { router } from "./routes/MapRouter";
 
 const axiosInstance = axios.create({
-  baseURL: "https://f2f5a255d1dc.ngrok-free.app/api/",
-  timeout: 10000, 
+  baseURL: "https://a79d50e67e9a.ngrok-free.app/api/",
+  timeout: 10000,
   headers: {
     "Content-Type": "application/json",
   },
@@ -24,7 +25,7 @@ axiosInstance.interceptors.response.use(
   (error) => {
     if (error.response && error.response.status === 401) {
       console.error("Unauthorized - Redirecting to login");
-      window.location.href = "/login";
+      router.navigate("/login");
     }
     return Promise.reject(error);
   }

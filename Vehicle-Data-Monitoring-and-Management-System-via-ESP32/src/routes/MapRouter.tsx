@@ -1,4 +1,8 @@
-import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
+import {
+  createBrowserRouter,
+  Navigate,
+  RouterProvider,
+} from "react-router-dom";
 import Login from "../views/Login/Login";
 import Register from "../views/Register/Register";
 import Layout from "../layouts/Layout";
@@ -6,7 +10,7 @@ import AllVehicles from "../views/AllVehicles/AllVehicles";
 import TotalMileage from "../views/TotalMileage";
 import MileageReport from "../views/MileageReport";
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Navigate to="/login" replace />,

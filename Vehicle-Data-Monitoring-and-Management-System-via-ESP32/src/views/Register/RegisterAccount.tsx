@@ -1,44 +1,56 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { MdOutlineEmail, MdOutlineReportProblem } from "react-icons/md";
 import { IoIosLock } from "react-icons/io";
 import logoFull from "../../assets/logoFull.png";
 import "./RegisterAccount.css";
 import { FaRegUser } from "react-icons/fa6";
-import { GrMapLocation } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 import { IoEyeOutline } from "react-icons/io5";
 import { IoEyeOffOutline } from "react-icons/io5";
 
-const RegisterAccount = ({ onRegister, defaultData }: any) => {
+const fields = {
+  name: "Name",
+  email: "Email",
+  password: "Password",
+  confirmPassword: "ConfirmPassword",
+};
+
+interface FieldError {
+  Field: string;
+  Error: string;
+}
+
+const RegisterAccount = ({
+  onRegister,
+  defaultData,
+  fieldErrors,
+}: {
+  onRegister: (accountData: any) => Promise<void>;
+  defaultData: {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    imei: string;
+    licensePlate: string;
+    simPhoneNumber: string;
+    brand: string;
+    vehicleType: string;
+  };
+  fieldErrors: FieldError[];
+}) => {
   const [accountInfo, setAccountInfo] = useState({
     name: defaultData.name || "",
     email: defaultData.email || "",
-    address: defaultData.address || "",
     password: defaultData.password || "",
     confirmPassword: "",
-  });
-
-  const [errors, setErrors] = useState({
-    name: "",
-    email: "",
-    address: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  const [shake, setShake] = useState({
-    name: false,
-    email: false,
-    address: false,
-    password: false,
-    confirmPassword: false,
   });
 
   const [isNameFocused, setNameFocused] = useState(false);
   const [isEmailFocused, setEmailFocused] = useState(false);
   const [isPasswordFocused, setPasswordFocused] = useState(false);
   const [isConfirmPasswordFocused, setConfirmPasswordFocused] = useState(false);
-  const [isAddressFocused, setAddressFocused] = useState(false);
 
   const navigate = useNavigate();
 
@@ -47,88 +59,17 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAccountInfo({ ...accountInfo, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: "" });
-  };
-
-  const validateEmail = (email: string) => {
-    const re = /\S+@\S+\.\S+/;
-    return re.test(email);
-  };
-
-  const validatePassword = (password: string) => {
-    // Mật khẩu >=8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt
-    const re =
-      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    return re.test(password);
-  };
-
-  const isNumeric = (value: string) => /^\d+$/.test(value);
-
-  const triggerShake = (field: keyof typeof shake) => {
-    setShake((prev) => ({ ...prev, [field]: true }));
-    setTimeout(() => {
-      setShake((prev) => ({ ...prev, [field]: false }));
-    }, 500);
   };
 
   const handleSubmit = () => {
-    let valid = true;
-    let newErrors = {
-      name: "",
-      email: "",
-      address: "",
-      password: "",
-      confirmPassword: "",
-    };
+    onRegister(accountInfo);
+  };
 
-    if (!accountInfo.name) {
-      newErrors.name = "Bắt buộc";
-      triggerShake("name");
-      valid = false;
-    }
-
-    if (!accountInfo.email) {
-      newErrors.email = "Bắt buộc";
-      triggerShake("email");
-      valid = false;
-    } else if (!validateEmail(accountInfo.email)) {
-      newErrors.email = "Email không hợp lệ";
-      triggerShake("email");
-      valid = false;
-    }
-
-    if (!accountInfo.address) {
-      newErrors.address = "Bắt buộc";
-      triggerShake("address");
-      valid = false;
-    }
-
-    if (!accountInfo.password) {
-      newErrors.password = "Bắt buộc";
-      triggerShake("password");
-      valid = false;
-    } else if (!validatePassword(accountInfo.password)) {
-      newErrors.password =
-        "Mật khẩu phải có ít nhất 8 ký tự, gồm chữ hoa, chữ thường, số và ký tự đặc biệt";
-      triggerShake("password");
-      valid = false;
-    }
-
-    if (!accountInfo.confirmPassword) {
-      newErrors.confirmPassword = "Bắt buộc";
-      triggerShake("confirmPassword");
-      valid = false;
-    } else if (accountInfo.password !== accountInfo.confirmPassword) {
-      newErrors.confirmPassword = "Mật khẩu không khớp";
-      triggerShake("confirmPassword");
-      valid = false;
-    }
-
-    setErrors(newErrors);
-
-    if (valid) {
-      onRegister(accountInfo); // Gọi API nếu hợp lệ
-    }
+  const trackingError = (errorName: string): FieldError | null => {
+    const found = fieldErrors.find((each) =>
+      each.Field.toLowerCase().includes(errorName.toLowerCase())
+    );
+    return found || null;
   };
 
   return (
@@ -143,8 +84,8 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
             </p>
             <div
               className={`name ${isNameFocused ? "active" : ""} ${
-                shake.name ? "shake" : ""
-              } ${errors.name ? "error" : ""}`}
+                trackingError(fields.name) ? "error" : ""
+              }`}
             >
               <FaRegUser className="nameIcon" />
               <input
@@ -157,27 +98,28 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
                 onBlur={() => setNameFocused(false)}
               />
             </div>
-            {errors.name && (
+            {trackingError(fields.name) && (
               <div className="errorNotification">
                 <MdOutlineReportProblem />
-                <p className="errorMessage">{errors.name}</p>
+                <p className="errorMessage">
+                  {trackingError(fields.name)?.Error}
+                </p>
               </div>
             )}
           </div>
 
-          {/* Email */}
           <div className="inputGroup">
             <p>
               Email <span className="force">*</span>
             </p>
             <div
-              className={`emailLogin ${isEmailFocused ? "active" : ""} ${
-                shake.email ? "shake" : ""
-              } ${errors.email ? "error" : ""}`}
+              className={`emailLogin ${isEmailFocused ? "active" : ""}  ${
+                trackingError(fields.email) ? "error" : ""
+              }`}
             >
               <MdOutlineEmail className="emailIcon" />
               <input
-                type="email"
+                type="text"
                 name="email"
                 placeholder="Email"
                 value={accountInfo.email}
@@ -187,10 +129,12 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
                 onBlur={() => setEmailFocused(false)}
               />
             </div>
-            {errors.email && (
+            {trackingError(fields.email) && (
               <div className="errorNotification">
                 <MdOutlineReportProblem />
-                <p className="errorMessage">{errors.email}</p>
+                <p className="errorMessage">
+                  {trackingError(fields.email)?.Error}
+                </p>
               </div>
             )}
           </div>
@@ -202,8 +146,8 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
             </p>
             <div
               className={`password ${isPasswordFocused ? "active" : ""} ${
-                shake.password ? "shake" : ""
-              } ${errors.password ? "error" : ""}`}
+                trackingError(fields.password) ? "error" : ""
+              }`}
             >
               <IoIosLock className="passwordIcon" />
               <input
@@ -223,10 +167,12 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
                 {showPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
               </span>
             </div>
-            {errors.password && (
+            {trackingError(fields.password) && (
               <div className="errorNotification">
                 <MdOutlineReportProblem />
-                <p className="errorMessage">{errors.password}</p>
+                <p className="errorMessage">
+                  {trackingError(fields.password)?.Error}
+                </p>
               </div>
             )}
           </div>
@@ -239,9 +185,7 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
             <div
               className={`confirmPassword ${
                 isConfirmPasswordFocused ? "active" : ""
-              } ${shake.confirmPassword ? "shake" : ""} ${
-                errors.confirmPassword ? "error" : ""
-              }`}
+              }  ${trackingError(fields.confirmPassword) ? "error" : ""}`}
             >
               <IoIosLock className="confirmPasswordIcon" />
               <input
@@ -261,15 +205,17 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
                 {showConfirmPassword ? <IoEyeOutline /> : <IoEyeOffOutline />}
               </span>
             </div>
-            {errors.confirmPassword && (
+            {trackingError(fields.confirmPassword) && (
               <div className="errorNotification">
                 <MdOutlineReportProblem />
-                <p className="errorMessage">{errors.confirmPassword}</p>
+                <p className="errorMessage">
+                  {trackingError(fields.confirmPassword)?.Error}
+                </p>
               </div>
             )}
           </div>
 
-          {/* Địa chỉ */}
+          {/* Địa chỉ
           <div className="inputGroup">
             <p>
               Địa chỉ <span className="force">*</span>
@@ -296,7 +242,7 @@ const RegisterAccount = ({ onRegister, defaultData }: any) => {
                 <p className="errorMessage">{errors.address}</p>
               </div>
             )}
-          </div>
+          </div> */}
 
           <button
             type="submit"

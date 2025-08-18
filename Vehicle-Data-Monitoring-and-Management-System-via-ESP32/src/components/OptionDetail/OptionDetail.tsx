@@ -9,10 +9,10 @@ interface OptionDetailProps {
 const OptionDetail = ({ onClose }: OptionDetailProps) => {
   return (
     <div className="optionDetailContainer">
-      <div className="optionItem" onClick={() => onClose("details")}>
+      {/* <div className="optionItem" onClick={() => onClose("details")}>
         <GoInfo className="optionIcon" />
         Chi tiết xe
-      </div>
+      </div> */}
       <div className="optionItem" onClick={() => onClose("route")}>
         <GoHistory className="optionIcon" />
         Xem lại lộ trình
