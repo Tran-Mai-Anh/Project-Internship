@@ -1,5 +1,3 @@
-
-
 const MileageReport=()=>{
     return(
         <div>Mileage report</div>

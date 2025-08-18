@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { MdOutlineEmail, MdOutlineReportProblem } from "react-icons/md";
 import { IoIosLock } from "react-icons/io";

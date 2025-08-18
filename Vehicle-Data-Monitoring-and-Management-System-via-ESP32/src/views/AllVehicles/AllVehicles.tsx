@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./AllVehicles.css";
 import { IoSearch } from "react-icons/io5";
 import { FiFilter } from "react-icons/fi";
@@ -170,13 +169,12 @@ const AllVehicles = () => {
         <div className="mapPlaceholder">
           <Map
             position={position}
-            vehicleType={vehicleType} // "car" hoặc "motorbike"
+            vehicleType={vehicleType}
           />
         </div>
       </div>
 
       <div className="vehicleListContainer">
-        {/* Show vehicle list when no vehicle is selected */}
         {!selectedVehicle && (
           <>
             <div className="titleVehicleListContainer">
@@ -225,7 +223,6 @@ const AllVehicles = () => {
           </>
         )}
 
-        {/* Show selected vehicle details when a vehicle is selected */}
         {selectedVehicle && selectedVehiclePosition && (
           <>
             <div className="titleVehicleListContainer">

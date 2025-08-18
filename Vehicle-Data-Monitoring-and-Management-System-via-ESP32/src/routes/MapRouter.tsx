@@ -21,7 +21,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/register",
-    element: <Register />, // ✅ thay vì RegisterCar
+    element: <Register />, 
   },
   {
     path: "/monitor",

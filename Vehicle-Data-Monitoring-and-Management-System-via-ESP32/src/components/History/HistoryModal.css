@@ -354,3 +354,9 @@
     text-align: left;
   }
 }
+
+.rowstatItemHistory{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

@@ -328,7 +328,6 @@
   animation: fadeIn 0.2s ease;
 }
 
-/* Optional animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -478,7 +477,6 @@
   color: #6c757d;
 }
 
-/* Update existing vehicle list item to show more info */
 .vehicleDetailAllVehicleContainer {
   cursor: pointer;
   transition: all 0.2s;

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import RegisterCar from "./RegisterCar";
 import RegisterAccount from "./RegisterAccount";

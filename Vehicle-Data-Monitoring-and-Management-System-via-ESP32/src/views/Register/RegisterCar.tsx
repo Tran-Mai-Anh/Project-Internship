@@ -46,7 +46,7 @@ const RegisterCar = ({
     imei: defaultData.imei || "",
     licensePlate: defaultData.licensePlate || "",
     simPhoneNumber: defaultData.simPhoneNumber || "",
-    barnd: defaultData.brand || "",
+    brand: defaultData.brand || "",
     vehicleType: defaultData.vehicleType || "",
   });
 
@@ -61,10 +61,9 @@ const RegisterCar = ({
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    // Chỉ cho phép nhập số cho các trường này
     const numericFields = ["imei", "simPhoneNumber"];
     if (numericFields.includes(name)) {
-      const onlyNumbers = value.replace(/\D/g, ""); // xóa mọi ký tự không phải số
+      const onlyNumbers = value.replace(/\D/g, ""); 
       setCarInfo((prev) => ({ ...prev, [name]: onlyNumbers }));
     } else {
       setCarInfo((prev) => ({ ...prev, [name]: value }));
@@ -76,40 +75,40 @@ const RegisterCar = ({
 
     if (!carInfo.imei.trim()) {
       errors.push({
-        Error: "Imei is required",
+        Error: "Bắt buộc",
         Field: "Imei",
       });
     }
 
     if (!carInfo.licensePlate.trim()) {
       errors.push({
-        Error: "License plate is required",
+        Error: "Bắt buộc",
         Field: "LicensePlate",
       });
     }
 
     if (!carInfo.simPhoneNumber.trim()) {
       errors.push({
-        Error: "Sim phone number is required",
+        Error: "Bắt buộc",
         Field: "SimPhoneNumber",
       });
     } else if (!/^\d{10,11}$/.test(carInfo.simPhoneNumber)) {
       errors.push({
-        Error: "Sim phone number must have 10 or 11 numbers",
+        Error: "Số điện thoại phải có 10 đến 11 số",
         Field: "SimPhoneNumber",
       });
     }
 
-    if (!carInfo.barnd.trim()) {
+    if (!carInfo.brand.trim()) {
       errors.push({
-        Error: "Brand is required",
+        Error: "Bắt buộc",
         Field: "Brand",
       });
     }
 
     if (!selected) {
       errors.push({
-        Error: "Vehicle type is required",
+        Error: "Bắt buộc",
         Field: "VehicleType",
       });
     }
@@ -235,7 +234,7 @@ const RegisterCar = ({
               <input
                 className="brandInput"
                 name="brand"
-                value={carInfo.barnd}
+                value={carInfo.brand}
                 onChange={handleChange}
                 onFocus={() => setBrandIsFocused(true)}
                 onBlur={() => setBrandIsFocused(false)}
@@ -252,7 +251,7 @@ const RegisterCar = ({
           </div>
 
           <div className="type">
-            <p>Loại</p>
+            <p>Loại <span className="forceInput">*</span></p>
             {options.map((option) => (
               <label key={option} className="custom-radio">
                 <input

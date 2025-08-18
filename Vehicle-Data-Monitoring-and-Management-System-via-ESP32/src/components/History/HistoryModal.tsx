@@ -196,7 +196,9 @@ const RouteHistoryModal: React.FC<RouteHistoryModalProps> = ({
                 />
               </div>
             </div>
-            <button type="submit" className="submitButtonHistory">Submit</button>
+            <button type="submit" className="submitButtonHistory">
+              Submit
+            </button>
           </form>
 
           {/* Results Section */}
@@ -214,46 +216,50 @@ const RouteHistoryModal: React.FC<RouteHistoryModalProps> = ({
                     <div className="summaryStatsHistory">
                       <h3 className="statsTitleHistory">Tổng quan lộ trình</h3>
                       <div className="statsGridHistory">
-                        <div className="statItemHistory">
-                          <Navigation className="statIconHistory" />
-                          <div className="statContentHistory">
-                            <span className="statLabelHistory">
-                              Tổng quãng đường
-                            </span>
-                            <span className="statValueHistory">
-                              {stats.totalDistance.toFixed(2)} km
-                            </span>
+                        <div className="rowstatItemHistory">
+                          <div className="statItemHistory">
+                            <Navigation className="statIconHistory" />
+                            <div className="statContentHistory">
+                              <span className="statLabelHistory">
+                                Tổng quãng đường
+                              </span>
+                              <span className="statValueHistory">
+                                {stats.totalDistance.toFixed(2)} km
+                              </span>
+                            </div>
+                          </div>
+                          <div className="statItemHistory">
+                            <Gauge className="statIconHistory" />
+                            <div className="statContentHistory">
+                              <span className="statLabelHistory">
+                                Tốc độ trung bình
+                              </span>
+                              <span className="statValueHistory">
+                                {stats.avgSpeed.toFixed(1)} km/h
+                              </span>
+                            </div>
                           </div>
                         </div>
-                        <div className="statItemHistory">
-                          <Gauge className="statIconHistory" />
-                          <div className="statContentHistory">
-                            <span className="statLabelHistory">
-                              Tốc độ trung bình
-                            </span>
-                            <span className="statValueHistory">
-                              {stats.avgSpeed.toFixed(1)} km/h
-                            </span>
+                        <div className="rowstatItemHistory">
+                          <div className="statItemHistory">
+                            <Gauge className="statIconHistory" />
+                            <div className="statContentHistory">
+                              <span className="statLabelHistory">
+                                Tốc độ tối đa
+                              </span>
+                              <span className="statValueHistory">
+                                {stats.maxSpeed} km/h
+                              </span>
+                            </div>
                           </div>
-                        </div>
-                        <div className="statItemHistory">
-                          <Gauge className="statIconHistory" />
-                          <div className="statContentHistory">
-                            <span className="statLabelHistory">
-                              Tốc độ tối đa
-                            </span>
-                            <span className="statValueHistory">
-                              {stats.maxSpeed} km/h
-                            </span>
-                          </div>
-                        </div>
-                        <div className="statItemHistory">
-                          <Clock className="statIconHistory" />
-                          <div className="statContentHistory">
-                            <span className="statLabelHistory">Số đoạn</span>
-                            <span className="statValueHistory">
-                              {routeData.length} đoạn
-                            </span>
+                          <div className="statItemHistory">
+                            <Clock className="statIconHistory" />
+                            <div className="statContentHistory">
+                              <span className="statLabelHistory">Số đoạn</span>
+                              <span className="statValueHistory">
+                                {routeData.length} đoạn
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>

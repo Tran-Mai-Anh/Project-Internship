@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import "./Login.css";
 import logoFull from "../../assets/logoFull.png";
 import { MdOutlineEmail } from "react-icons/md";
@@ -49,7 +48,7 @@ const Login = () => {
       setFieldErrors([
         {
           Field: "Email",
-          Error: "Wrong email format",
+          Error: "Sai định dạng email",
         },
       ]);
       valid = false;
@@ -66,7 +65,7 @@ const Login = () => {
       const data = response.data;
       localStorage.setItem("token", data.token);
       toast.success("Đăng nhập thành công");
-      navigate("/monitor/all-vehicles"); // hoặc trang khác
+      navigate("/monitor/all-vehicles"); 
     } catch (error: any) {
       console.log(error);
       if (axios.isAxiosError(error)) {
@@ -107,7 +106,7 @@ const Login = () => {
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
+              // placeholder="Enter your email"
               className={`emailLoginInput ${
                 trackingError(fields.email) ? "error" : ""
               }`}
@@ -139,7 +138,7 @@ const Login = () => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
+              // placeholder="Enter your password"
               className={`passwordInput ${
                 trackingError(fields.password) ? "error" : ""
               }`}

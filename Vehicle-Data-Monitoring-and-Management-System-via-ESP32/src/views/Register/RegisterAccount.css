@@ -10,18 +10,18 @@
 .registerAccount-form {
   background-color: white;
   width: 450px;
-  max-height: 90vh; /* ✅ Giới hạn tối đa theo chiều cao màn hình */
+  max-height: 90vh; 
   overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 30px;
   border-radius: 20px;
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none; 
   -ms-overflow-style: none;
 }
 
 .registerAccount-form::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
 }
 
 .register-form img {
@@ -93,6 +93,7 @@
   flex: 10;
   border: none;
   outline: none;
+  font-size: 14px;
 }
 
 .emailIcon,
