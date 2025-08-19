@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\controllers\\locationdatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\controllers\\locationdatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\locationdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\implementations\\locationdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\controllers\\vehiclescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\controllers\\vehiclescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\locationdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\implementations\\locationdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\implementations\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\controllers\\locationdatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\controllers\\locationdatacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\interfaces\\ilocationdataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\models\\entities\\locationdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\models\\entities\\locationdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|solutionrelative:vehiclemanagementsystem\\services\\implementations\\vehicleservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9555A2CE-780B-4570-BDAB-2807421FB1BC}|VehicleManagementSystem\\VehicleManagementSystem.csproj|f:\\project\\project-internship\\backend\\vehiclemanagementsystem\\vehiclemanagementsystem\\services\\implementations\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -114,11 +114,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 19,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "TripSegment.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\DTO\\TripSegment.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\DTO\\TripSegment.cs",
@@ -126,8 +126,7 @@
               "RelativeToolTip": "VehicleManagementSystem\\Models\\DTO\\TripSegment.cs",
               "ViewState": "AgIAAAQAAAAAAAAAAAAzwAkAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T09:04:36.021Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T09:04:36.021Z"
             },
             {
               "$type": "Document",
@@ -139,8 +138,7 @@
               "RelativeToolTip": "VehicleManagementSystem\\Data\\PostSQLDbContext.cs",
               "ViewState": "AgIAACgAAAAAAAAAAAAwwC8AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T08:13:25.683Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T08:13:25.683Z"
             },
             {
               "$type": "Document",
@@ -152,8 +150,7 @@
               "RelativeToolTip": "VehicleManagementSystem\\Models\\DTO\\LocationDataRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwA4AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-14T04:58:26.729Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-14T04:58:26.729Z"
             },
             {
               "$type": "Document",
@@ -169,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ILocationDataService.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Interfaces\\ILocationDataService.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Services\\Interfaces\\ILocationDataService.cs",
@@ -177,12 +174,11 @@
               "RelativeToolTip": "VehicleManagementSystem\\Services\\Interfaces\\ILocationDataService.cs",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAkAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T10:28:05.555Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T10:28:05.555Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "LocationData.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Models\\Entities\\LocationData.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Models\\Entities\\LocationData.cs",
@@ -190,8 +186,7 @@
               "RelativeToolTip": "VehicleManagementSystem\\Models\\Entities\\LocationData.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAA/wAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T10:26:58.946Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T10:26:58.946Z"
             },
             {
               "$type": "Document",
@@ -203,8 +198,7 @@
               "RelativeToolTip": "VehicleManagementSystem\\Models\\Entities\\Vehicle.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAkwBMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-12T10:26:33.189Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-12T10:26:33.189Z"
             },
             {
               "$type": "Document",
@@ -280,13 +274,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "LocationDataService.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\LocationDataService.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Services\\Implementations\\LocationDataService.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\LocationDataService.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Services\\Implementations\\LocationDataService.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAAwFgAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAowKMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-06T08:50:55.014Z",
               "EditorCaption": ""
@@ -349,21 +343,19 @@
               "RelativeToolTip": "VehicleManagementSystem\\Program.cs",
               "ViewState": "AgIAAD8AAAAAAAAAAAAmwE8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-06T01:54:24.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-06T01:54:24.352Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "LocationDataController.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\LocationDataController.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Controllers\\LocationDataController.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\LocationDataController.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Controllers\\LocationDataController.cs",
-              "ViewState": "AgIAAEIAAAAAAAAAAAAkwEoAAABSAAAAAAAAAA==",
+              "ViewState": "AgIAADwAAAAAAAAAAAAkwEoAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:37:23.488Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T07:37:23.488Z"
             },
             {
               "$type": "Document",
@@ -373,10 +365,9 @@
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Controllers\\VehiclesController.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Controllers\\VehiclesController.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Controllers\\VehiclesController.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAAwAkAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAxwA4AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:30:46.456Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T07:30:46.456Z"
             },
             {
               "$type": "Document",
@@ -400,8 +391,7 @@
               "RelativeToolTip": "VehicleManagementSystem\\Models\\DTO\\RegisterRequest.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:21:02.778Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T07:21:02.778Z"
             },
             {
               "$type": "Document",
@@ -417,16 +407,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "VehicleService.cs",
               "DocumentMoniker": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\VehicleService.cs",
               "RelativeDocumentMoniker": "VehicleManagementSystem\\Services\\Implementations\\VehicleService.cs",
               "ToolTip": "F:\\Project\\Project-Internship\\backend\\VehicleManagementSystem\\VehicleManagementSystem\\Services\\Implementations\\VehicleService.cs",
               "RelativeToolTip": "VehicleManagementSystem\\Services\\Implementations\\VehicleService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAQwBsAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-04T07:05:17.722Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-04T07:05:17.722Z"
             },
             {
               "$type": "Document",
@@ -438,8 +427,7 @@
               "RelativeToolTip": "VehicleManagementSystem\\Services\\Implementations\\AuthService.cs",
               "ViewState": "AgIAAEIAAAAAAAAAAAAuwFsAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-24T15:11:14.965Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-07-24T15:11:14.965Z"
             }
           ]
         }
