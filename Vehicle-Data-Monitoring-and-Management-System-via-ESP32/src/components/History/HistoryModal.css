@@ -1,0 +1,362 @@
+/* Route History Modal Styles */
+
+.modalOverlayHistory {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.routeHistoryModalHistory {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.modalHeaderHistory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.modalTitleHistory {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0;
+}
+
+.modalTitleIconHistory {
+  color: #3b82f6;
+}
+
+.closeButtonHistory {
+  background: none;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+}
+
+.closeButtonHistory:hover {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.modalContentHistory {
+  padding: 24px;
+  max-height: calc(90vh - 80px);
+  overflow-y: auto;
+}
+
+/* Date Selection Form */
+.dateSelectionFormHistory {
+  background: #f8fafc;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.dateInputsHistory {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 640px) {
+  .dateInputsHistory {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputGroupHistory {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputLabelHistory {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #374151;
+}
+
+.dateInputHistory {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.dateInputHistory:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.submitButtonHistory {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+}
+
+.submitButtonHistory:hover:not(:disabled) {
+  background: #2563eb;
+}
+
+.submitButtonHistory:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Results Section */
+.resultsSectionHistory {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 24px;
+}
+
+.noResultsHistory {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6b7280;
+}
+
+.noResultsIconHistory {
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+/* Summary Stats */
+.summaryStatsHistory {
+  background: #f0f9ff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  border: 1px solid #e0f2fe;
+}
+
+.statsTitleHistory {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0c4a6e;
+  margin: 0 0 16px 0;
+}
+
+.statsGridHistory {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+}
+
+.statItemHistory {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid #e0f2fe;
+}
+
+.statIconHistory {
+  color: #0284c7;
+  flex-shrink: 0;
+}
+
+.statContentHistory {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statLabelHistory {
+  font-size: 12px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.statValueHistory {
+  font-size: 18px;
+  font-weight: 600;
+  color: #0c4a6e;
+}
+
+/* Route Timeline */
+.routeTimelineHistory {
+  background: white;
+}
+
+.timelineTitleHistory {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+  margin: 0 0 20px 0;
+}
+
+.timelineItemHistory {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.timelineItemHistory:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 40px;
+  bottom: -24px;
+  width: 2px;
+  background: #e5e7eb;
+}
+
+.timelineMarkerHistory {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.timelineContentHistory {
+  flex: 1;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.segmentHeaderHistory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.segmentTypeHistory {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.segmentDurationHistory {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  color: #6b7280;
+  background: #e5e7eb;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.segmentDetailsHistory {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detailRowHistory {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detailRowHistory:last-child {
+  border-bottom: none;
+}
+
+.detailLabelHistory {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+  min-width: 100px;
+}
+
+.detailValueHistory {
+  font-size: 14px;
+  color: #111827;
+  text-align: right;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+  .modalOverlayHistory {
+    padding: 10px;
+  }
+
+  .routeHistoryModalHistory {
+    max-height: 95vh;
+  }
+
+  .modalHeaderHistory {
+    padding: 16px 20px;
+  }
+
+  .modalContentHistory {
+    padding: 20px;
+  }
+
+  .statsGridHistory {
+    grid-template-columns: 1fr;
+  }
+
+  .segmentHeaderHistory {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .detailRowHistory {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .detailValueHistory {
+    text-align: left;
+  }
+}
+
+.rowstatItemHistory{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

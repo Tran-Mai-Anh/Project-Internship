@@ -1,0 +1,41 @@
+.logoutContainer {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 1000;
+  width: 150px;
+  animation: fadeIn 0.5s ease;
+  top: 50px;
+  right: 5;
+}
+
+.logoutOption {
+  padding: 10px 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  color: #334155;
+}
+
+.logoutOption:hover {
+  background-color: #f1f5f9;
+  border-radius: 10px;
+}
+
+.logoutIcon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

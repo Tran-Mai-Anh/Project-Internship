@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
@@ -5,7 +6,40 @@ import logoFull from "../../assets/logoFull.png";
 import "./RegisterCar.css";
 import { MdOutlineReportProblem } from "react-icons/md";
 
-const RegisterCar = ({ onNext, defaultData }: any) => {
+interface FieldError {
+  Field: string;
+  Error: string;
+}
+
+const fields = {
+  imei: "Imei",
+  vehicleType: "VehicleType",
+  licensePlate: "LicensePlate",
+  simPhoneNumber: "SimPhoneNumber",
+  brand: "Brand",
+};
+
+const RegisterCar = ({
+  onNext,
+  defaultData,
+  fieldErrors,
+  setFieldErrors,
+}: {
+  onNext: (carData: any) => void;
+  defaultData: {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    imei: string;
+    licensePlate: string;
+    simPhoneNumber: string;
+    brand: string;
+    vehicleType: string;
+  };
+  fieldErrors: FieldError[];
+  setFieldErrors: React.Dispatch<React.SetStateAction<FieldError[]>>;
+}) => {
   const navigate = useNavigate();
 
   const [carInfo, setCarInfo] = useState({
@@ -21,76 +55,78 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
   const [isSimPhoneFocused, setSimPhoneIsFocused] = useState(false);
   const [isBrandFocused, setBrandIsFocused] = useState(false);
 
-  const [fieldErrors, setFieldErrors] = useState<any>({});
-  const [shake, setShake] = useState<any>({
-    imei: false,
-    licensePlate: false,
-    simPhoneNumber: false,
-    brand: false,
-    vehicleType: false,
-  });
-
   const options = ["Xe máy", "Ô tô"];
   const [selected, setSelected] = useState(carInfo.vehicleType || "");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    // Chỉ cho phép nhập số cho các trường này
     const numericFields = ["imei", "simPhoneNumber"];
     if (numericFields.includes(name)) {
-      const onlyNumbers = value.replace(/\D/g, ""); // xóa mọi ký tự không phải số
+      const onlyNumbers = value.replace(/\D/g, ""); 
       setCarInfo((prev) => ({ ...prev, [name]: onlyNumbers }));
     } else {
       setCarInfo((prev) => ({ ...prev, [name]: value }));
     }
   };
 
-  const triggerShake = (field: string) => {
-    setShake((prev: any) => ({ ...prev, [field]: true }));
-    setTimeout(() => {
-      setShake((prev: any) => ({ ...prev, [field]: false }));
-    }, 500);
-  };
-
   const handleSubmit = () => {
-    const errors: any = {};
+    const errors: FieldError[] = [];
 
     if (!carInfo.imei.trim()) {
-      errors.imei = "Bắt buộc";
-      triggerShake("imei");
+      errors.push({
+        Error: "Bắt buộc",
+        Field: "Imei",
+      });
     }
 
     if (!carInfo.licensePlate.trim()) {
-      errors.licensePlate = "Bắt buộc";
-      triggerShake("licensePlate");
+      errors.push({
+        Error: "Bắt buộc",
+        Field: "LicensePlate",
+      });
     }
 
     if (!carInfo.simPhoneNumber.trim()) {
-      errors.simPhoneNumber = "Bắt buộc";
-      triggerShake("simPhoneNumber");
+      errors.push({
+        Error: "Bắt buộc",
+        Field: "SimPhoneNumber",
+      });
     } else if (!/^\d{10,11}$/.test(carInfo.simPhoneNumber)) {
-      errors.simPhoneNumber = "Số điện thoại phải có 10 hoặc 11 chữ số";
-      triggerShake("simPhoneNumber");
+      errors.push({
+        Error: "Số điện thoại phải có 10 đến 11 số",
+        Field: "SimPhoneNumber",
+      });
     }
 
     if (!carInfo.brand.trim()) {
-      errors.brand = "Bắt buộc";
-      triggerShake("brand");
+      errors.push({
+        Error: "Bắt buộc",
+        Field: "Brand",
+      });
     }
 
     if (!selected) {
-      errors.vehicleType = "Hãy chọn loại xe";
-      triggerShake("vehicleType");
+      errors.push({
+        Error: "Bắt buộc",
+        Field: "VehicleType",
+      });
     }
 
-    if (Object.keys(errors).length > 0) {
+    if (errors.length > 0) {
       setFieldErrors(errors);
       return;
     }
 
-    setFieldErrors({});
+    setFieldErrors([]);
     onNext({ ...carInfo, vehicleType: selected });
+  };
+
+  const trackingError = (errorName: string): FieldError | null => {
+    const found = fieldErrors.find((each) =>
+      each.Field.toLowerCase().includes(errorName.toLowerCase())
+    );
+    return found || null;
   };
 
   return (
@@ -100,16 +136,16 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
           <img src={logoFull} alt="Logo" />
           <div className="inputGroup">
             <p>
-              IMEI <span>*</span>
+              IMEI <span className="force">*</span>
             </p>
             <div
               className={`imei ${isImeiFocused ? "active" : ""} ${
-                fieldErrors.imei ? "error" : ""
-              } ${shake.imei ? "shake" : ""}`}
+                trackingError(fields.imei) ? "error" : ""
+              }`}
             >
               <input
-               inputMode="numeric"
-               pattern="\d*"
+                inputMode="numeric"
+                pattern="\d*"
                 className="imeiInput"
                 name="imei"
                 value={carInfo.imei}
@@ -118,22 +154,24 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
                 onBlur={() => setImeiIsFocused(false)}
               />
             </div>
-            {fieldErrors.imei && (
+            {trackingError(fields.imei) && (
               <div className="errorNotification">
                 <MdOutlineReportProblem />
-                <p className="errorMessage">{fieldErrors.imei}</p>
+                <p className="errorMessage">
+                  {trackingError(fields.imei)?.Error}
+                </p>
               </div>
             )}
           </div>
 
           <div className="inputGroup">
             <p>
-              Biển số <span>*</span>
+              Biển số <span className="force">*</span>
             </p>
             <div
               className={`plate ${isPlateFocused ? "active" : ""} ${
-                fieldErrors.licensePlate ? "error" : ""
-              } ${shake.licensePlate ? "shake" : ""}`}
+                trackingError(fields.licensePlate) ? "error" : ""
+              }`}
             >
               <input
                 className="plateInput"
@@ -144,25 +182,27 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
                 onBlur={() => setPlateIsFocused(false)}
               />
             </div>
-            {fieldErrors.licensePlate && (
+            {trackingError(fields.licensePlate) && (
               <div className="errorNotification">
                 <MdOutlineReportProblem />
-                <p className="errorMessage">{fieldErrors.licensePlate}</p>
+                <p className="errorMessage">
+                  {trackingError(fields.licensePlate)?.Error}
+                </p>
               </div>
             )}
           </div>
 
           <div className="inputGroup">
             <p>
-              Số điện thoại SIM <span>*</span>
+              Số điện thoại SIM <span className="force">*</span>
             </p>
             <div
               className={`simphone ${isSimPhoneFocused ? "active" : ""} ${
-                fieldErrors.simPhoneNumber ? "error" : ""
-              } ${shake.simPhoneNumber ? "shake" : ""}`}
+                trackingError(fields.simPhoneNumber) ? "error" : ""
+              }`}
             >
               <input
-               inputMode="numeric"
+                inputMode="numeric"
                 pattern="\d*"
                 className="simphoneInput"
                 name="simPhoneNumber"
@@ -172,22 +212,24 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
                 onBlur={() => setSimPhoneIsFocused(false)}
               />
             </div>
-            {fieldErrors.simPhoneNumber && (
+            {trackingError(fields.simPhoneNumber) && (
               <div className="errorNotification">
                 <MdOutlineReportProblem />
-                <p className="errorMessage">{fieldErrors.simPhoneNumber}</p>
+                <p className="errorMessage">
+                  {trackingError(fields.simPhoneNumber)?.Error}
+                </p>
               </div>
             )}
           </div>
 
           <div className="inputGroup">
             <p>
-              Hãng xe <span>*</span>
+              Hãng xe <span className="force">*</span>
             </p>
             <div
               className={`brand ${isBrandFocused ? "active" : ""} ${
-                fieldErrors.brand ? "error" : ""
-              } ${shake.brand ? "shake" : ""}`}
+                trackingError(fields.brand) ? "error" : ""
+              } `}
             >
               <input
                 className="brandInput"
@@ -198,16 +240,18 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
                 onBlur={() => setBrandIsFocused(false)}
               />
             </div>
-            {fieldErrors.brand && (
+            {trackingError(fields.brand) && (
               <div className="errorNotification">
                 <MdOutlineReportProblem />
-                <p className="errorMessage">{fieldErrors.brand}</p>
+                <p className="errorMessage">
+                  {trackingError(fields.brand)?.Error}
+                </p>
               </div>
             )}
           </div>
 
           <div className="type">
-            <p>Loại</p>
+            <p>Loại <span className="forceInput">*</span></p>
             {options.map((option) => (
               <label key={option} className="custom-radio">
                 <input
@@ -217,13 +261,15 @@ const RegisterCar = ({ onNext, defaultData }: any) => {
                   checked={selected === option}
                   onChange={() => setSelected(option)}
                 />
-                <span>{option}</span>
+                <span className="force">{option}</span>
               </label>
             ))}
-            {fieldErrors.vehicleType && (
+            {trackingError(fields.vehicleType) && (
               <div className="errorNotification">
                 <MdOutlineReportProblem />
-                <p className="errorMessage">{fieldErrors.vehicleType}</p>
+                <p className="errorMessage">
+                  {trackingError(fields.vehicleType)?.Error}
+                </p>
               </div>
             )}
           </div>

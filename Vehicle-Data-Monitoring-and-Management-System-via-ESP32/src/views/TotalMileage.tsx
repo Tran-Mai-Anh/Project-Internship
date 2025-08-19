@@ -1,5 +1,3 @@
-
-
 const TotalMileage=()=>{
     return(
         <div>Total mileage</div>

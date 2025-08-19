@@ -6,6 +6,19 @@ import { IoIosLock } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "../../axiosInstance";
 import { MdOutlineReportProblem } from "react-icons/md";
+import { useBackDrop } from "../Backdrop/BackdropProvider";
+import { toast } from "react-toastify";
+import axios from "axios";
+
+const fields = {
+  email: "Email",
+  password: "Password",
+};
+
+interface FieldError {
+  Field: string;
+  Error: string;
+}
 
 const Login = () => {
   const [isEmailFocused, setEmailIsFocused] = useState(false);
@@ -13,12 +26,11 @@ const Login = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  const [emailError, setEmailError] = useState<string | null>(null);
-  const [passwordError, setPasswordError] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  const [shakeEmail, setShakeEmail] = useState(false);
-  const [shakePassword, setShakePassword] = useState(false);
+  const { showBackDrop, hideBackDrop } = useBackDrop();
+
+  const [fieldErrors, setFieldErrors] = useState<FieldError[]>([]);
 
   const validateEmail = (email: string): boolean => {
     const re = /\S+@\S+\.\S+/;
@@ -30,55 +42,51 @@ const Login = () => {
 
     let valid = true;
 
-    // Reset lỗi
-    setEmailError(null);
-    setPasswordError(null);
+    setFieldErrors([]);
 
-    // Validate email
-    if (!email) {
-      setEmailError("Bắt buộc");
-      triggerShake("email");
-      valid = false;
-    } else if (!validateEmail(email)) {
-      setEmailError("Email không hợp lệ");
-      triggerShake("email");
-      valid = false;
-    }
-
-    // Validate password
-    if (!password) {
-      setPasswordError("Bắt buộc");
-      triggerShake("password");
+    if (!validateEmail(email)) {
+      setFieldErrors([
+        {
+          Field: "Email",
+          Error: "Sai định dạng email",
+        },
+      ]);
       valid = false;
     }
 
     if (!valid) return;
 
     try {
+      showBackDrop();
       const response = await axiosInstance.post("auth/login", {
         email,
         password,
       });
       const data = response.data;
       localStorage.setItem("token", data.token);
-      navigate("/monitor/all-vehicles"); // hoặc trang khác
+      toast.success("Đăng nhập thành công");
+      navigate("/monitor/all-vehicles"); 
     } catch (error: any) {
-      // Sai thông tin đăng nhập
-      setEmailError("Sai tên đăng nhập hoặc mật khẩu");
-      setPasswordError("Sai tên đăng nhập hoặc mật khẩu");
-      triggerShake("email");
-      triggerShake("password");
+      console.log(error);
+      if (axios.isAxiosError(error)) {
+        const dataError = error?.response?.data;
+        if (dataError.message?.includes("Validation failed")) {
+          setFieldErrors(dataError.errors);
+        }
+        toast.error(dataError.message);
+      } else {
+        toast.error(error.message);
+      }
+    } finally {
+      hideBackDrop();
     }
   };
 
-  const triggerShake = (type: "email" | "password") => {
-    if (type === "email") {
-      setShakeEmail(true);
-      setTimeout(() => setShakeEmail(false), 500); // thời gian shake
-    } else {
-      setShakePassword(true);
-      setTimeout(() => setShakePassword(false), 500);
-    }
+  const trackingError = (errorName: string): FieldError | null => {
+    const found = fieldErrors.find((each) =>
+      each.Field.toLowerCase().includes(errorName.toLowerCase())
+    );
+    return found || null;
   };
 
   return (
@@ -91,23 +99,27 @@ const Login = () => {
           </p>
           <div
             className={`emailLogin ${isEmailFocused ? "active" : ""} ${
-              shakeEmail ? "shake" : ""
-            } ${emailError ? "error" : ""}`}
+              trackingError(fields.email) ? "error" : ""
+            }`}
           >
             <MdOutlineEmail className="emailIcon" />
             <input
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="Enter your email"
-              className={`emailLoginInput ${emailError ? "error" : ""}`}
+              // placeholder="Enter your email"
+              className={`emailLoginInput ${
+                trackingError(fields.email) ? "error" : ""
+              }`}
               onFocus={() => setEmailIsFocused(true)}
               onBlur={() => setEmailIsFocused(false)}
             />
           </div>
-          {emailError && (
+          {trackingError(fields.email) && (
             <div className="errorNotification">
               <MdOutlineReportProblem />
-              <p className="errorMessage">{emailError}</p>
+              <p className="errorMessage">
+                {trackingError(fields.email)?.Error}
+              </p>
             </div>
           )}
         </div>
@@ -118,24 +130,28 @@ const Login = () => {
           </p>
           <div
             className={`password ${isPasswordFocused ? "active" : ""} ${
-              shakePassword ? "shake" : ""
-            } ${passwordError ? "error" : ""}`}
+              trackingError(fields.password) ? "error" : ""
+            }`}
           >
             <IoIosLock className="passwordIcon" />
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="Enter your password"
-              className={`passwordInput ${passwordError ? "error" : ""}`}
+              // placeholder="Enter your password"
+              className={`passwordInput ${
+                trackingError(fields.password) ? "error" : ""
+              }`}
               onFocus={() => setPasswordIsFocused(true)}
               onBlur={() => setPasswordIsFocused(false)}
             />
           </div>
-          {passwordError && (
+          {trackingError(fields.password) && (
             <div className="errorNotification">
               <MdOutlineReportProblem />
-              <p className="errorMessage">{passwordError}</p>
+              <p className="errorMessage">
+                {trackingError(fields.password)?.Error}
+              </p>
             </div>
           )}
         </div>

@@ -10,18 +10,18 @@
 .registerCar-form {
   background-color: white;
   width: 450px;
-   max-height: 90vh; /* ✅ Giới hạn tối đa theo chiều cao màn hình */
-  overflow-y: auto; 
+  max-height: 90vh; /* ✅ Giới hạn tối đa theo chiều cao màn hình */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   padding: 30px;
   border-radius: 20px;
-  scrollbar-width: none;       /* Firefox */
+  scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none;
 }
 
 .registerCar-form::-webkit-scrollbar {
-  display: none;               /* Chrome, Safari */
+  display: none; /* Chrome, Safari */
 }
 
 .registerCar-form img {
@@ -30,7 +30,15 @@
   margin-bottom: 15px;
 }
 
-.register-form span {
+.register-form .force {
+  color: red;
+}
+
+.inputGroup .force {
+  color: red;
+}
+
+.type .forceInput {
   color: red;
 }
 
@@ -43,10 +51,6 @@
 
 .inputGroup p {
   font-weight: 600;
-}
-
-.inputGroup span{
-  color: red;
 }
 
 .imei,
@@ -94,8 +98,8 @@
   gap: 5px;
 }
 
-.type p{
-    font-weight: 600;
+.type p {
+  font-weight: 600;
 }
 
 .custom-radio {
@@ -142,24 +146,24 @@
   background-color: #fff; /* Giữ nền trắng */
 }
 
-.next{
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
+.next {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
-.nextButton{
-    border: none;
-    background-color: #e3aadd;
-    width: 110px;
-    height: 35px;
-    border-radius: 6px;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    gap: 5px;
+.nextButton {
+  border: none;
+  background-color: #e3aadd;
+  width: 110px;
+  height: 35px;
+  border-radius: 6px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  gap: 5px;
 }
 
 .loginDiv {
@@ -181,7 +185,7 @@
   text-decoration: underline;
 }
 
-.error-text-div{
+.error-text-div {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -189,17 +193,20 @@
   color: red;
 }
 
-.error-text{
+.error-text {
   color: red;
   font-size: 12px;
   margin-top: 4px;
 }
 
-.imei.error, .plate.error, .simphone.error, .brand.error{
+.imei.error,
+.plate.error,
+.simphone.error,
+.brand.error {
   border: 1px solid red;
 }
 
-.nextButton:hover{
-    background-color: #b94db8;
-    transition: background-color 0.5 ease;
+.nextButton:hover {
+  background-color: #b94db8;
+  transition: background-color 0.5 ease;
 }

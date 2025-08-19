@@ -8,12 +8,10 @@ import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
 interface VehicleDetailProps {
-  isOpen: boolean;
   onClose: () => void;
 }
 
-const VehicleDetail = ({ isOpen, onClose }: VehicleDetailProps) => {
-  if (!isOpen) return null;
+const VehicleDetail = ({  onClose }: VehicleDetailProps) => {
 
   const navigate = useNavigate();
 
