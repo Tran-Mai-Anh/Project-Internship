@@ -63,13 +63,13 @@ const Sidebar = () => {
               <FaCar className="iconTitle" />
               Tất cả xe
             </li>
-            {/* <li className="subTitle">
+            <li className="subTitle">
               <IoGolf className="iconTitle" />
               Vùng giới hạn
-            </li> */}
+            </li>
           </ul>
         </li>
-        {/* <li className="mainTitle">
+         <li className="mainTitle">
           <div className="menuTitle" onClick={hanldeNotification}>
             <div className="title">
               <FaBell className="iconTitle" />
@@ -89,8 +89,8 @@ const Sidebar = () => {
               Tin tức
             </li>
           </ul>
-        </li> */}
-        {/* <li className="mainTitle">
+        </li> 
+         <li className="mainTitle">
           <div className="menuTitle" onClick={handleReport}>
             <div className="title">
               <FaChartPie className="iconTitle" />
@@ -120,7 +120,7 @@ const Sidebar = () => {
               Quãng đường theo xe
             </li>
           </ul>
-        </li> */}
+        </li> 
       </ul>
     </div>
   );

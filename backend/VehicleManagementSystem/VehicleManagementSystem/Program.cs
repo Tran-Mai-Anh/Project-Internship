@@ -86,6 +86,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ILocationDataService, LocationDataService>();
 builder.Services.AddScoped<IVehicleService, VehicleService>();
+builder.Services.AddHttpClient<LocationDataService>();
 
 var app = builder.Build();
 

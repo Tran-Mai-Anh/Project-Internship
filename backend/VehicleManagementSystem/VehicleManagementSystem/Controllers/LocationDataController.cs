@@ -24,7 +24,7 @@ namespace VehicleManagementSystem.Controllers
         public async Task<IActionResult> UpdateLocation([FromBody] LocationDataRequest request)
         {
             await _service.UpdateLocationAsync(request);
-            return Ok(new ApiResponse<object>(200, "Location updated successfully", null));
+            return Ok(new { statusCode = 200, message = "Location updated successfully" });
         }
 
 
@@ -79,9 +79,7 @@ namespace VehicleManagementSystem.Controllers
             // Retrieve location history
             var history = await _service.GetLocationHistoryAsync(vehicleId, startTime, endTime);
 
-            return history == null || history.Count == 0
-                ? NotFound(new { message = "No location data found in the given time range." })
-                : Ok(history);
+            return Ok(history);
         }
 
     }

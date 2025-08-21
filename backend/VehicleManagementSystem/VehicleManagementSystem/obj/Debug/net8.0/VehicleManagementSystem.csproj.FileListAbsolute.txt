@@ -144,6 +144,10 @@ F:\Project\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Micr
 F:\Project\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 F:\Project\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
 F:\Project\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Npgsql.dll
+F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\appsettings.Development.json
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\appsettings.json
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\VehicleManagementSystem.staticwebassets.endpoints.json
@@ -185,7 +189,6 @@ F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementS
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Microsoft.OpenApi.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Mono.TextTemplating.dll
-F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Npgsql.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -216,13 +219,10 @@ F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementS
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
@@ -284,10 +284,10 @@ F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementS
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.build.json.cache
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.development.json
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\VehicleM.A34F0410.Up2Date
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\VehicleManagementSystem.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\refint\VehicleManagementSystem.dll
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\VehicleManagementSystem.pdb
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\VehicleManagementSystem.genruntimeconfig.cache
 F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\ref\VehicleManagementSystem.dll
-F:\Project\Project-Internship\backend\VehicleManagementSystem\VehicleManagementSystem\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

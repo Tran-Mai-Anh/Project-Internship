@@ -35,30 +35,31 @@ interface PositionVehicle {
   longitude: number;
   timestamp: string;
   speed: number;
+  location: string,
 }
 
-const mockData: Vehicle[] = [
-  {
-    id: 1,
-    imei: "012345678910112",
-    licensePlate: "51H-12345",
-    simPhoneNumber: "0901234567",
-    brand: "Toyota",
-    vehicleType: "car",
-    createdAt: "2025-08-14T08:31:57.11202Z",
-    updatedAt: "2025-08-14T16:02:31.139285Z",
-  },
-  {
-    id: 2,
-    imei: "012345678910113",
-    licensePlate: "51H-67890",
-    simPhoneNumber: "0901234568",
-    brand: "Honda",
-    vehicleType: "motorbike",
-    createdAt: "2025-08-14T09:15:30.11202Z",
-    updatedAt: "2025-08-14T15:45:12.139285Z",
-  },
-];
+// const mockData: Vehicle[] = [
+//   {
+//     id: 1,
+//     imei: "012345678910112",
+//     licensePlate: "51H-12345",
+//     simPhoneNumber: "0901234567",
+//     brand: "Toyota",
+//     vehicleType: "car",
+//     createdAt: "2025-08-14T08:31:57.11202Z",
+//     updatedAt: "2025-08-14T16:02:31.139285Z",
+//   },
+//   {
+//     id: 2,
+//     imei: "012345678910113",
+//     licensePlate: "51H-67890",
+//     simPhoneNumber: "0901234568",
+//     brand: "Honda",
+//     vehicleType: "motorbike",
+//     createdAt: "2025-08-14T09:15:30.11202Z",
+//     updatedAt: "2025-08-14T15:45:12.139285Z",
+//   },
+// ];
 const AllVehicles = () => {
   const [isFocused, setIsFocused] = useState(false);
   const [isOptionDetailOpen, setIsOptionDetailOpen] = useState(false);
@@ -68,30 +69,67 @@ const AllVehicles = () => {
   const [vehicleType, setVehicleType] = useState<string>("car");
   const [position, setPosition] = useState<[number, number] | null>(null);
   const { showBackDrop, hideBackDrop } = useBackDrop();
-  const [allVehicles, setAllVehicles] = useState<Vehicle[]>(mockData);
+  const [allVehicles, setAllVehicles] = useState<Vehicle[]>([]);
 
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
   const [selectedVehiclePosition, setSelectedVehiclePosition] =
     useState<PositionVehicle | null>(null);
   const [isRouteHistoryModalOpen, setIsRouteHistoryModalOpen] = useState(false);
 
-  // useEffect(() => {
-  //   async function getAllVehicles() {
-  //     try {
-  //       showBackDrop();
-  //       const response = await axiosInstance.get("vehicles/all-vehicles");
-  //       setAllVehicles(response.data);
-  //     } catch (error: any) {
-  //       console.error(error);
-  //       toast.warn("Lỗi lấy tất cả xe");
-  //       toast.error(error.message);
-  //     } finally {
-  //       hideBackDrop();
-  //     }
-  //   }
+  useEffect(() => {
+    async function getAllVehicles() {
+      try {
+        showBackDrop();
+        const response = await axiosInstance.get("vehicles/all-vehicles");
+        setAllVehicles(response.data);
+      } catch (error: any) {
+        console.error(error);
+        toast.warn("Lỗi lấy tất cả xe");
+        toast.error(error.message);
+      } finally {
+        hideBackDrop();
+      }
+    }
 
-  //   getAllVehicles();
-  // }, []);
+    getAllVehicles();
+  },[]);
+
+const getPositionOfVehicle = useCallback(
+  async (vehicle: Vehicle, showLoading = true) => {
+    try {
+      if (showLoading) showBackDrop();
+
+      const response = await axiosInstance.get(`locations/${vehicle.id}/current`);
+      const data: PositionVehicle = response.data;
+
+      setPosition([data.latitude, data.longitude]);
+      setSelectedVehicle(vehicle);
+      setSelectedVehiclePosition(data);
+    } catch (error) {
+      console.error(error);
+      if (axios.isAxiosError(error)) {
+        toast.warn(error.response?.data.message);
+      } else {
+        toast.warn("Lỗi lấy vị trí của 1 xe");
+      }
+    } finally {
+      if (showLoading) hideBackDrop();
+    }
+  },
+  [showBackDrop, hideBackDrop]
+);
+
+
+  useEffect(() => {
+  if (!selectedVehicle) return;
+
+  const interval = setInterval(() => {
+    getPositionOfVehicle(selectedVehicle, false); // refresh silently
+  }, 3000);
+
+  return () => clearInterval(interval);
+}, [selectedVehicle, getPositionOfVehicle]);
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -118,35 +156,6 @@ const AllVehicles = () => {
     }
   };
 
-  const getPositionOfVehicle = useCallback(async (vehicle: Vehicle) => {
-    try {
-      showBackDrop();
-      // const response = await axiosInstance.get(`locations/${vehicle.id}/current`);
-      // const data: PositionVehicle = response.data;
-      // console.log(response);
-
-      const data: PositionVehicle = {
-        imei: "012345678910112",
-        pin: 70,
-        latitude: 10.778965,
-        longitude: 106.705963,
-        timestamp: "2025-08-14T16:02:31.139285Z",
-        speed: 5.17,
-      };
-      setPosition([data.latitude, data.longitude]);
-      setSelectedVehicle(vehicle);
-      setSelectedVehiclePosition(data);
-    } catch (error) {
-      console.error(error);
-      if (axios.isAxiosError(error)) {
-        toast.warn(error.response?.data.message);
-      } else {
-        toast.warn("Lỗi lấy vị trí của 1 xe");
-      }
-    } finally {
-      hideBackDrop();
-    }
-  }, []);
 
   const formatDateTime = useCallback((dateString: string) => {
     if (!dateString) return "N/A";
@@ -188,9 +197,9 @@ const AllVehicles = () => {
               <div
                 className="vehicleDetailAllVehicleContainer"
                 onClick={() => {
-                  getPositionOfVehicle(each);
-                  setVehicleType(each.vehicleType);
-                }}
+                getPositionOfVehicle(each, true); 
+                setVehicleType(each.vehicleType);
+}}
                 key={each.id}
               >
                 <div className="vehicleLogoTitleAllVehicleDiv">
@@ -206,7 +215,7 @@ const AllVehicles = () => {
                       </h3>
                       <p className="brandAllVehicle">{each.brand}</p>
                       <p className="dateTimeAllVehicle">
-                        {formatDateTime(each.updatedAt)}
+                        {formatDateTime(each.createdAt)}
                       </p>
                     </div>
                   </div>
@@ -274,6 +283,12 @@ const AllVehicles = () => {
                     <span className="infoLabel">IMEI:</span>
                     <span className="infoValue">
                       {selectedVehiclePosition.imei}
+                    </span>
+                  </div>
+                  <div className="infoItem">
+                    <span className="infoLabel">Địa chỉ:</span>
+                    <span className="infoValue">
+                      {selectedVehiclePosition.location}
                     </span>
                   </div>
                   <div className="infoItem">

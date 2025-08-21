@@ -12,6 +12,7 @@ import {
 import "./HistoryModal.css";
 import { toast } from "react-toastify";
 import { useBackDrop } from "../../views/Backdrop/BackdropProvider";
+import axiosInstance from "../../axiosInstance";
 
 interface RouteHistoryData {
   startTime: string;
@@ -22,6 +23,7 @@ interface RouteHistoryData {
   maxSpeed: number;
   latitude: number;
   longitude: number;
+  location: string;
 }
 
 interface RouteHistoryModalProps {
@@ -30,38 +32,38 @@ interface RouteHistoryModalProps {
   id?: number;
 }
 
-const mockData: RouteHistoryData[] = [
-  {
-    startTime: "2025-08-14T08:45:32.880314Z",
-    endTime: "2025-08-14T09:52:39.988904Z",
-    type: "Driving",
-    distanceKm: 0.396040577370528,
-    averageSpeed: 36.5,
-    maxSpeed: 50,
-    latitude: 10.772,
-    longitude: 106.698,
-  },
-  {
-    startTime: "2025-08-14T09:52:39.988904Z",
-    endTime: "2025-08-14T09:54:28.775167Z",
-    type: "Stop",
-    distanceKm: 0,
-    averageSpeed: 0,
-    maxSpeed: 0,
-    latitude: 10.78,
-    longitude: 106.707,
-  },
-  {
-    startTime: "2025-08-14T09:54:28.775167Z",
-    endTime: "2025-08-14T16:02:31.139285Z",
-    type: "Driving",
-    distanceKm: 2.633026262726728,
-    averageSpeed: 6.206458532025132,
-    maxSpeed: 50,
-    latitude: 10.78,
-    longitude: 106.707,
-  },
-];
+// const mockData: RouteHistoryData[] = [
+//   {
+//     startTime: "2025-08-14T08:45:32.880314Z",
+//     endTime: "2025-08-14T09:52:39.988904Z",
+//     type: "Driving",
+//     distanceKm: 0.396040577370528,
+//     averageSpeed: 36.5,
+//     maxSpeed: 50,
+//     latitude: 10.772,
+//     longitude: 106.698,
+//   },
+//   {
+//     startTime: "2025-08-14T09:52:39.988904Z",
+//     endTime: "2025-08-14T09:54:28.775167Z",
+//     type: "Stop",
+//     distanceKm: 0,
+//     averageSpeed: 0,
+//     maxSpeed: 0,
+//     latitude: 10.78,
+//     longitude: 106.707,
+//   },
+//   {
+//     startTime: "2025-08-14T09:54:28.775167Z",
+//     endTime: "2025-08-14T16:02:31.139285Z",
+//     type: "Driving",
+//     distanceKm: 2.633026262726728,
+//     averageSpeed: 6.206458532025132,
+//     maxSpeed: 50,
+//     latitude: 10.78,
+//     longitude: 106.707,
+//   },
+// ];
 
 const RouteHistoryModal: React.FC<RouteHistoryModalProps> = ({
   onClose,
@@ -73,28 +75,58 @@ const RouteHistoryModal: React.FC<RouteHistoryModalProps> = ({
   const [routeData, setRouteData] = useState<RouteHistoryData[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
   const { showBackDrop, hideBackDrop } = useBackDrop();
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!startDate || !endDate) {
-      toast.warn("Vui lòng chọn đầy đủ thời gian bắt đầu và kết thúc");
-      return;
-    }
 
-    try {
-      showBackDrop();
-      // const response = await axiosInstance.get(`localtions/${id}/history-by-time?startTime=${startDate}&endTime=${endDate}`);
-      // setRouteData(response.data);
+  // const handleSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   if (!startDate || !endDate) {
+  //     toast.warn("Vui lòng chọn đầy đủ thời gian bắt đầu và kết thúc");
+  //     return;
+  //   }
 
-      // Mock data for demonstration
-      setRouteData(mockData);
-      setHasSearched(true);
-    } catch (error) {
-      console.error("Error fetching route history:", error);
-      alert("Có lỗi xảy ra khi lấy lịch sử lộ trình");
-    } finally {
-      hideBackDrop();
-    }
-  };
+  //   try {
+  //     showBackDrop();
+  //     const response = await axiosInstance.get(`localtions/${id}/history-by-time?startTime=${startDate}&endTime=${endDate}`);
+  //     setRouteData(response.data.data);
+
+  //     // Mock data for demonstration
+  //     // setRouteData(mockData);
+  //     setHasSearched(true);
+  //   } catch (error) {
+  //     console.error("Error fetching route history:", error);
+  //     alert("Có lỗi xảy ra khi lấy lịch sử lộ trình");
+  //   } finally {
+  //     hideBackDrop();
+  //   }
+  // };
+
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+  if (!startDate || !endDate) {
+    toast.warn("Vui lòng chọn đầy đủ thời gian bắt đầu và kết thúc");
+    return;
+  }
+
+  try {
+    showBackDrop();
+
+    // Convert local datetime to UTC ISO string
+    const startUtc = new Date(startDate).toISOString();
+    const endUtc = new Date(endDate).toISOString();
+
+    const response = await axiosInstance.get(
+      `locations/${id}/history-by-time?startTime=${startUtc}&endTime=${endUtc}`
+    );
+
+    setRouteData(response.data);
+    console.log(response.data);
+    setHasSearched(true);
+  } catch (error) {
+    console.error("Error fetching route history:", error);
+    alert("Có lỗi xảy ra khi lấy lịch sử lộ trình");
+  } finally {
+    hideBackDrop();
+  }
+};
 
   const formatDateTime = useCallback((dateString: string) => {
     return new Date(dateString).toLocaleString("vi-VN", {
@@ -104,6 +136,7 @@ const RouteHistoryModal: React.FC<RouteHistoryModalProps> = ({
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
+      timeZone: "UTC",
     });
   }, []);
 
@@ -315,7 +348,7 @@ const RouteHistoryModal: React.FC<RouteHistoryModalProps> = ({
                               </span>
                               <span className="detailValueHistory">
                                 {segment.latitude.toFixed(6)},{" "}
-                                {segment.longitude.toFixed(6)}
+                                {segment.longitude.toFixed(6)}, {segment.location}
                               </span>
                             </div>
 

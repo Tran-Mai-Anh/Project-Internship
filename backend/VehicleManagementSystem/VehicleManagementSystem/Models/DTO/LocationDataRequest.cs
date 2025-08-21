@@ -14,6 +14,8 @@ namespace VehicleManagementSystem.Models.DTO
         public DateTime? Timestamp { get; set; }
         public double Speed { get; set; }
 
+        public string? Location { get; set; }
+
     }
 
 }

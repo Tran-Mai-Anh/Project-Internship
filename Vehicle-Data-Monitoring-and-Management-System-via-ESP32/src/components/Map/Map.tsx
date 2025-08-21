@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import car from "../../assets/car_running.svg";
@@ -21,11 +21,18 @@ const bikeIcon = new L.Icon({
   iconAnchor: [16, 32],
 });
 
+// helper component to update map center when position changes
+const RecenterMap = ({ position }: { position: [number, number] }) => {
+  const map = useMap();
+  map.setView(position, map.getZoom());
+  return null;
+};
+
 const Map = ({ position, vehicleType }: MapProps) => {
   if (!position) return <p>Hãy chọn xe để xem vị trí...</p>;
 
   const selectedIcon = vehicleType === "car" ? carIcon : bikeIcon;
-  console.log(vehicleType);
+
   return (
     <MapContainer
       center={position}
@@ -39,6 +46,9 @@ const Map = ({ position, vehicleType }: MapProps) => {
       <Marker position={position} icon={selectedIcon}>
         <Popup>Vị trí xe hiện tại</Popup>
       </Marker>
+
+      {/* auto recenter when position updates */}
+      <RecenterMap position={position} />
     </MapContainer>
   );
 };

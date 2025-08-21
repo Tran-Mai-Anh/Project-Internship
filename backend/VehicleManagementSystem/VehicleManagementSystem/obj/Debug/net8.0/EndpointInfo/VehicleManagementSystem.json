@@ -326,6 +326,10 @@
           "speed": {
             "type": "number",
             "format": "double"
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

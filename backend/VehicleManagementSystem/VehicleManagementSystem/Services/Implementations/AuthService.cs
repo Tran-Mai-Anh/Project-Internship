@@ -33,41 +33,14 @@ namespace VehicleManagementSystem.Services.Implementations
 
             var token = GenerateJwtToken(user);
 
-            var response = new ApiResponse<object>(
-                statusCode: 200,
-                message: "Login successful",
-                data: new { token }
-            );
+            var response = new {
+                statusCode = 200,
+                message =  "Login successful",
+                token = token
+            };
 
             return new OkObjectResult(response);
         }
-
-        //public async Task<IActionResult> RegisterUserAndVehicleAsync(RegisterRequest request)
-        //{
-        //    await ValidateRegisterRequestAsync(request);
-
-        //    await using var transaction = await _context.Database.BeginTransactionAsync();
-        //    try
-        //    {
-        //        var user = await CreateUserAsync(request);
-        //        await AddVehicleToUserAsync(user.Id, request);
-
-        //        await transaction.CommitAsync();
-
-        //        var response = new ApiResponse<object>(
-        //            statusCode: 201,
-        //            message: "Registration successful",
-        //            data: null
-        //        );
-
-        //        return new OkObjectResult(response);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        await transaction.RollbackAsync();
-        //        throw new InternalServerErrorException("An unexpected error occurred. Please try again later.");
-        //    }
-        //}
 
         public async Task<IActionResult> RegisterUserAndVehicleAsync(RegisterRequest request)
         {
@@ -86,11 +59,11 @@ namespace VehicleManagementSystem.Services.Implementations
 
                 await transaction.CommitAsync();
 
-                var response = new ApiResponse<object>(
-                    statusCode: 200,
-                    message: "Registration successful",
-                    data: null
-                );
+                var response = new
+                {
+                    statusCode = 200,
+                    message= "Registration successful",
+                };
 
                 return new OkObjectResult(response);
             }
