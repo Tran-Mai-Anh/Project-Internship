@@ -1,7 +1,10 @@
+import NoDataPage from "../components/NoDataPage/NoDataPage";
+
 const TotalMileage=()=>{
-    return(
-        <div>Total mileage</div>
-    )
-}
+   return (
+        <NoDataPage />
+  );
+};
+
 
 export default TotalMileage;

@@ -1,0 +1,27 @@
+.noDataContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+  color: #333;
+}
+
+.noDataImage {
+  width: 150px;
+  height: auto;
+  margin-bottom: 20px;
+}
+
+.noDataContainer h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #1f2937; /* dark gray */
+}
+
+.noDataContainer p {
+  font-size: 14px;
+  color: #6b7280; /* lighter gray */
+}

@@ -1,7 +1,9 @@
+import NoDataPage from "../components/NoDataPage/NoDataPage";
+
 const MileageReport=()=>{
-    return(
-        <div>Mileage report</div>
-    )
-}
+    return (
+    <NoDataPage />
+  );
+};
 
 export default MileageReport;

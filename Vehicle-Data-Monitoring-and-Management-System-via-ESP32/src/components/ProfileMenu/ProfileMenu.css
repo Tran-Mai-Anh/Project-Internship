@@ -1,0 +1,82 @@
+/* Container */
+.profileMenuContainer {
+ position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  z-index: 1000;
+  width: 250px;
+  animation: fadeIn 0.5s ease;
+  top: 50px;
+  right: 0px;
+}
+
+/* Header */
+.profileHeader {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  padding: 10px;
+}
+
+.avatarCircle {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #0078ff;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.profileDetails {
+  flex: 1;
+}
+
+.profileName {
+  font-weight: 600;
+  margin: 0;
+  font-size: 16px;
+}
+
+.profilePhone,
+.profileEmail {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* Menu Options */
+.menuOption {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.menuOption:hover {
+  background: #f5f5f5;
+}
+
+.menuIcon {
+  font-size: 20px;
+  margin-right: 10px;
+  color: #444;
+  transition: color 0.2s;
+}
+
+.menuOption:hover .menuIcon {
+  color: #0078ff;
+}
+
+.menuOption span {
+  font-size: 14px;
+}

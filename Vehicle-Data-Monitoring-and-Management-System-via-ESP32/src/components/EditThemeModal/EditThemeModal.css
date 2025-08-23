@@ -1,0 +1,188 @@
+/* Backdrop che toàn màn hình và cao hơn mọi thứ */
+.themeModalBackdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 4000;           /* > dropdown (1000) */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hộp modal */
+.themeModal {
+  position: relative;
+  background: #fff;
+  width: 420px;
+  max-width: calc(100% - 32px);
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  animation: themeFadeIn .2s ease;
+}
+
+.themeModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.themeModalHeader h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.themeModalClose {
+  border: 0;
+  background: transparent;
+  font-size: 18px;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.themeGroup { margin: 14px 0; }
+.themeLabel { margin: 0 0 8px; font-weight: 600; color: #334155; }
+
+/* Segmented control */
+.segmented {
+  display: inline-flex;
+  gap: 8px;
+  background: #eef2f7;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.seg {
+  border: 0;
+  background: transparent;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  color: #334155;
+}
+
+.seg.active {
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Nút đặt lại */
+.resetBtn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 14px;
+  border: 0;
+  border-radius: 10px;
+  background: #ef4444;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@keyframes themeFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+/* Overlay */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+/* Modal container */
+.modal-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 24px;
+  width: 400px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Header */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.modal-header h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937; /* dark gray */
+}
+
+.modal-header button {
+  font-size: 18px;
+  color: #6b7280;
+  transition: 0.2s;
+}
+.modal-header button:hover {
+  color: #111827; /* darker */
+}
+
+/* Option group */
+.option-group {
+  margin-bottom: 20px;
+}
+
+.option-group p {
+  font-weight: 500;
+  margin-bottom: 8px;
+  color: #374151;
+}
+
+.option-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+/* Button style */
+.option-button {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  color: #374151;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.option-button:hover {
+  background: #f3f4f6;
+}
+
+/* Active state */
+.option-button.active {
+  border-color: #3b82f6;  /* blue border */
+  background: #dbeafe;    /* light blue bg */
+  color: #1d4ed8;         /* dark blue text */
+}
+
+/* Reset button */
+.reset-btn {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background: #ef4444;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.reset-btn:hover {
+  background: #dc2626;
+}

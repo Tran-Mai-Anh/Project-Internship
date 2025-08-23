@@ -64,7 +64,7 @@ const Login = () => {
       });
       const data = response.data;
       localStorage.setItem("token", data.token);
-      console.log(data);
+      // console.log(data);
       toast.success("Đăng nhập thành công");
       navigate("/monitor/all-vehicles"); 
     } catch (error: any) {

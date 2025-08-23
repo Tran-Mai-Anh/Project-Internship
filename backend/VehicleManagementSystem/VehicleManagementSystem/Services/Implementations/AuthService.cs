@@ -79,8 +79,10 @@ namespace VehicleManagementSystem.Services.Implementations
             var key = Encoding.UTF8.GetBytes(_config["Jwt:Key"]);
             var claims = new[]
             {
-                new Claim(ClaimTypes.Name, user.Email),
-                new Claim("UserId", user.Id.ToString())
+                new Claim("name", user.Name),
+                new Claim("UserId", user.Id.ToString()),
+                new Claim("email", user.Email),
+                new Claim("address", user.Address),
             };
 
             var tokenDescriptor = new SecurityTokenDescriptor
